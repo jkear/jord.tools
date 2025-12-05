@@ -1,0 +1,40 @@
+---
+title: LangGraph
+category: framework
+officialDocs: https://python.langchain.com/docs/langgraph
+apiReference: https://python.langchain.com/docs/langgraph/reference
+githubRepo: https://github.com/langchain-ai/langgraph
+devKit: https://python.langchain.com/docs/langgraph#installation
+lastUpdated: 2025-11-27
+---
+
+import { DocumentationLink } from "../../../components/DocumentationLink";
+
+# LangGraph
+
+## Quick Overview
+LangGraph is a library for building stateful, multi-actor applications with LLMs, built on top of LangChain. It extends the LangChain Expression Language with the ability to coordinate multiple chains (or actors) across multiple steps of computation in a cyclic manner.
+
+## My Experience
+I've migrated many of my complex agent workflows to LangGraph to better manage state and cycles, which are difficult to handle in standard LangChain chains.
+
+## Quick Start
+```bash
+# Installation command
+pip install langgraph
+```
+
+## Key Resources
+<div className="flex flex-wrap gap-4 my-6">
+  <DocumentationLink framework="langgraph" type="docs" label="Official Documentation" />
+  <DocumentationLink framework="langgraph" type="api" label="API Reference" />
+  <DocumentationLink framework="langgraph" type="devkit" label="Getting Started" />
+  <DocumentationLink framework="langgraph" type="github" label="GitHub Repository" />
+</div>
+
+## My Projects Using This
+- **Agent Dojo**: The core orchestration engine is transitioning to LangGraph.
+- **Sequential Thinking MCP**: Implements cyclic thought processes using graph-based state.
+
+## Community Resources
+- [LangGraph Tutorials](https://langchain-ai.github.io/langgraph/tutorials/)

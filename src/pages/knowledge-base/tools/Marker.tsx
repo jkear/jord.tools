@@ -1,0 +1,24 @@
+import React from 'react';
+import { FrameworkPage } from '../../../components/FrameworkPage';
+
+export default function MarkerPage() {
+    return (
+        <FrameworkPage
+            title="Marker"
+            description="Convert PDF to markdown quickly and accurately."
+            framework="marker"
+            experience="Essential for my RAG pipelines. It handles equations and tables much better than standard PDF extractors."
+            quickStart="pip install marker-pdf"
+        >
+            <div className="prose prose-invert max-w-none">
+                <h3>Key Features</h3>
+                <ul>
+                    <li>Deep learning based layout analysis</li>
+                    <li>LaTeX equation extraction</li>
+                    <li>Table recognition and formatting</li>
+                    <li>High accuracy text extraction</li>
+                </ul>
+            </div>
+        </FrameworkPage>
+    );
+}
