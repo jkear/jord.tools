@@ -1,112 +1,156 @@
-import { FeaturedPost } from "../components/FeaturedPost";
-import { BlogCard } from "../components/BlogCard";
-import { Sidebar } from "../components/Sidebar";
-import { ToolsForAI } from "../components/ToolsForAI";
-import { GlassCard } from "../components/GlassCard";
-
-const featuredPost = {
-    title: "The Future of AI in Creative Expression",
-    excerpt: "Exploring how artificial intelligence is transforming the landscape of music composition, political analysis, and creative tools. From AI-generated melodies to predictive political models, we're witnessing a revolution in how technology augments human creativity.",
-    image: "https://images.unsplash.com/photo-1549399905-5d1bad747576?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB3b3Jrc3BhY2UlMjB0ZWNobm9sb2d5fGVufDF8fHx8MTc1Njg5OTYyMnww&ixlib=rb-4.1.0&q=80&w=1080",
-    author: "Jordan Kearfott",
-    date: "January 15, 2025",
-    readTime: "5 min read",
-    category: "AI"
-};
+import { LiquidGlass } from "@liquidglass/react";
 
 const blogPosts = [
     {
         id: "r37-healthcare-ai",
         title: "R37 Healthcare AI Study Guide",
-        excerpt: "An interactive deep dive into healthcare AI applications, covering retrieval systems, ranking algorithms, and generative AI for unstructured data.",
-        image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoZWFsdGhjYXJlJTIwYWl8ZW58MXx8fHwxNzU2OTQzODAwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-        author: "Jordan Kearfott",
+        excerpt: "An interactive deep dive into healthcare AI applications.",
         date: "May 20, 2024",
         readTime: "10 min read",
-        category: "Healthcare AI",
-        link: "/blog/r37-healthcare-ai"
     },
     {
-        id: "1",
+        id: "ml-music",
         title: "Machine Learning Models in Music Composition",
-        excerpt: "Diving deep into how transformer models are being trained on vast musical datasets to generate original compositions. Exploring the intersection of creativity and artificial intelligence.",
-        image: "https://images.unsplash.com/photo-1514189831078-ee41c3568075?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMGRlc2lnbiUyMHByb2Nlc3N8ZW58MXx8fHwxNzU2OTA0NjQzfDA&ixlib=rb-4.1.0&q=80&w=1080",
-        author: "Jordan Kearfott",
+        excerpt: "How transformer models generate original compositions.",
         date: "January 12, 2025",
         readTime: "7 min read",
-        category: "AI"
     },
     {
-        id: "2",
-        title: "The Evolution of Political Discourse in Digital Spaces",
-        excerpt: "Analyzing how social media algorithms shape political conversations and the implications for democratic processes. A look at filter bubbles and echo chambers.",
-        image: "https://images.unsplash.com/photo-1711816769781-0a8194f44399?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwY29mZmVlJTIwc2V0dXB8ZW58MXx8fHwxNzU2OTQzODAwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-        author: "Jordan Kearfott",
+        id: "political-discourse",
+        title: "The Evolution of Political Discourse",
+        excerpt: "Analyzing social media algorithms and democratic processes.",
         date: "January 10, 2025",
         readTime: "4 min read",
-        category: "Politics"
+    },
+];
+
+const tools = [
+    {
+        name: "Neo4j",
+        description: "The Graph Database is the tool to rule them all. Knwoldege, understanding, defined decision trees, security, and information discovery.",
+        icon: "/images/icons/neo4j-liquid-glass.png",
+        url: "#"
     },
     {
-        id: "3",
-        title: "AI-Powered Audio Production Tools",
-        excerpt: "A technical review of the latest AI tools transforming music production. From automatic mastering to intelligent mixing suggestions, technology is reshaping the studio.",
-        image: "https://images.unsplash.com/photo-1549399905-5d1bad747576?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB3b3Jrc3BhY2UlMjB0ZWNobm9sb2d5fGVufDF8fHx8MTc1Njg5OTYyMnww&ixlib=rb-4.1.0&q=80&w=1080",
-        author: "Jordan Kearfott",
-        date: "January 8, 2025",
-        readTime: "6 min read",
-        category: "Music"
+        name: "MCP",
+        description: "Model Context Protocol to connect LLMs to any API, store prompts, and use hooks. Serena, Graph Algorithms,  ",
+        icon: "/images/icons/mcp-glass-icon.png",
+        url: "#"
     },
     {
-        id: "4",
-        title: "Predictive Models in Election Analysis",
-        excerpt: "How machine learning algorithms are being used to forecast electoral outcomes and analyze voting patterns. The intersection of data science and political science.",
-        image: "https://images.unsplash.com/photo-1514189831078-ee41c3568075?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMGRlc2lnbiUyMHByb2Nlc3N8ZW58MXx8fHwxNzU2OTA0NjQzfDA&ixlib=rb-4.1.0&q=80&w=1080",
-        author: "Jordan Kearfott",
-        date: "January 5, 2025",
-        readTime: "5 min read",
-        category: "Politics"
-    }
+        name: "Marker",
+        description: "PDF to Markdown Converter to give AI perfect vision of any PDF before it goes into a graph database",
+        icon: "/images/icons/langs_libraries_icon.png",
+        url: "#"
+    },
+    {
+        name: "n8n",
+        description: "Everyone's go-to automation platform with langchain's tools built-in",
+        icon: "/images/icons/n8n-glass-icon1.png",
+        url: "#"
+    },
+    {
+        name: "Flowise",
+        description: "Low-code orchestration platform enabling workflow whiteboarding and easy creation.",
+        icon: "/images/icons/flowise-glass-icon.png",
+        url: "#"
+    },
+    {
+        name: "ComfyUI",
+        description: "AI Image Generation workflow platform",
+        icon: "/images/icons/comfyUI-glass-icon.png",
+        url: "#"
+    },
 ];
 
 export default function HomePage() {
     return (
-        <>
-            <div className="grid lg:grid-cols-3 gap-8">
-                <main className="lg:col-span-2">
-                    <ToolsForAI />
-
-                    <div className="mb-8">
-                        <h2 className="text-title-2 mb-6">Latest Posts</h2>
-                        <div className="grid gap-6 sm:gap-7 md:grid-cols-2 md:gap-8 xl:gap-10 md:auto-rows-fr">
-                            {blogPosts.map((post) => (
-                                <BlogCard key={post.id} post={post} />
-                            ))}
+        <div
+            className="min-h-screen w-full px-6 sm:px-10 lg:px-16 py-20 lg:py-24 flex flex-col items-center gap-16"
+        >
+            <div className="w-full max-w-screen-2xl">
+                <LiquidGlass borderRadius={50} brightness={.75} blur={1.5} contrast={1.2} shadowIntensity={2} elasticity={.2} displacementScale={20}>
+                    <div className="w-full px-8 sm:px-14 py-14 flex flex-col gap-7">
+                        <div className="flex flex-col gap-4">
+                            <span className="text-xl uppercase font-bold tracking-[0.45em] text-white/55">jord.tools</span>
+                            <div className="space-y-4">
+                                <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold text-white/90 leading-tight drop-shadow-lg">
+                                    AI/ML dev journal
+                                </h1>
+                                <p className="text-xl sm:text-2xl text-white/80 max-w-4xl">
+                                    documenting libs/langs, tools, and projects
+                                </p>
+                            </div>
                         </div>
                     </div>
-
-                    {/* Load More */}
-                    <div className="text-center">
-                        <GlassCard
-                            className="inline-block px-8 py-3 cursor-pointer"
-                            hoverEffect
-                            role="button"
-                            liquid={true}
-                            liquidConfig={{
-                                elasticity: 0.2,
-                                displacementScale: 30, // Subtler effect for button
-                                padding: "0px",
-                            }}
-                        >
-                            Load More Posts
-                        </GlassCard>
-                    </div>
-                </main>
-
-                <aside className="space-y-8">
-                    <FeaturedPost {...featuredPost} compact />
-                    <Sidebar />
-                </aside>
+                </LiquidGlass>
             </div>
-        </>
+
+            <div className="w-full max-w-screen-2xl flex flex-col gap-12" id="tools">
+                <div className="w-full">
+                    <LiquidGlass borderRadius={50} brightness={.75} blur={1.5} contrast={1.2} shadowIntensity={2} elasticity={.2} displacementScale={20}>
+                        <div className="w-full px-10 py-12 space-y-7">
+                            <h2 className="text-4xl font-semibold text-white/90 drop-shadow-md">Favorite AI Tools</h2>
+                            <div className="space-y-5">
+                                {tools.map((tool) => (
+                                    <a
+                                        key={tool.name}
+                                        className="flex items-center gap-6 rounded-2xl border border-white/18 px-6 py-5 transition hover:border-white/35"
+                                        href={tool.url}
+                                    >
+                                        <div className="relative h-14 w-14 flex-shrink-0">
+                                            <img
+                                                src={tool.icon}
+                                                alt={`${tool.name} icon`}
+                                                title={`${tool.name} — ${tool.description}`}
+                                                className="h-14 w-14 object-contain drop-shadow-lg"
+                                            />
+                                        </div>
+                                        <div className="flex-1 min-w-0">
+                                            <h3 className="text-xl font-semibold text-white/90 leading-snug">{tool.name}</h3>
+                                            <p className="text-base text-white/75 leading-relaxed">{tool.description}</p>
+                                        </div>
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+                    </LiquidGlass>
+                </div>
+
+                <div className="w-full" id="posts">
+                    <LiquidGlass borderRadius={50} brightness={.75} blur={1.5} contrast={1.2} shadowIntensity={2} elasticity={.2} displacementScale={20}>
+                        <div className="w-full px-10 py-12 space-y-7">
+                            <h2 className="text-4xl font-semibold text-white/90 drop-shadow-md">Latest Posts</h2>
+                            <div className="space-y-5">
+                                {blogPosts.map((post) => (
+                                    <div key={post.id} className="space-y-2 border-b border-white/15 pb-5 last:border-b-0 last:pb-0">
+                                        <h3 className="text-xl font-semibold text-white/85 leading-snug">{post.title}</h3>
+                                        <p className="text-base text-white/75 leading-relaxed">{post.excerpt}</p>
+                                        <p className="text-xs tracking-wide text-white/60 uppercase">{post.date} • {post.readTime}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </LiquidGlass>
+                </div>
+            </div>
+
+            <div className="w-full max-w-screen-xl">
+                <LiquidGlass borderRadius={50} brightness={.75} blur={1.5} contrast={1.2} shadowIntensity={2} elasticity={.2} displacementScale={20}>
+                    <div className="w-full px-10 sm:px-14 py-12 flex flex-col items-center gap-6 text-center">
+                        <h2 className="text-3xl sm:text-4xl font-semibold text-white/90 drop-shadow-md">Explore Deeper</h2>
+                        <p className="text-base sm:text-lg text-white/80 max-w-3xl leading-relaxed">
+                            Curated walkthroughs, implementation notes, and experiments land here first. Jump into the frameworks, tools, or projects catalog to keep building.
+                        </p>
+                        <a
+                            className="inline-flex items-center justify-center rounded-full border border-white/35 px-9 py-3.5 text-sm sm:text-base font-semibold tracking-wide text-white/85 transition hover:border-white hover:text-white"
+                            href="/knowledge-base"
+                        >
+                            Open the knowledge base
+                        </a>
+                    </div>
+                </LiquidGlass>
+            </div>
+        </div>
     );
 }

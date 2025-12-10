@@ -1,4 +1,4 @@
-import { GlassCard } from "../../components/GlassCard";
+import { LiquidGlass } from "@liquidglass/react";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 
@@ -20,7 +20,7 @@ export function R37HealthcareAIPost() {
                 </div>
             </div>
 
-            <GlassCard className="p-8 prose prose-invert max-w-none">
+            <LiquidGlass borderRadius={50} blur={1.5} brightness={0.75} contrast={1.2} shadowIntensity={2} elasticity={0.2} displacementScale={20} className="p-8 prose prose-invert max-w-none">
                 <p className="lead">
                     This study guide focuses on the application of Artificial Intelligence in the healthcare domain, specifically targeting the R37 grant mechanism areas of interest.
                 </p>
@@ -55,7 +55,7 @@ export function R37HealthcareAIPost() {
                     <li><a href="https://grants.nih.gov/grants/funding/r37.htm" target="_blank" rel="noopener noreferrer">NIH R37 Information</a></li>
                     <li><a href="https://huggingface.co/models?pipeline_tag=text-classification&other=medical" target="_blank" rel="noopener noreferrer">Hugging Face Medical Models</a></li>
                 </ul>
-            </GlassCard>
+            </LiquidGlass>
         </div>
     );
 }

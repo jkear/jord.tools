@@ -18,6 +18,18 @@ export default function MCPPage() {
                     <li>Support for resources, prompts, and tools</li>
                     <li>Language agnostic protocol</li>
                 </ul>
+
+                <h3>My Projects Using This</h3>
+                <ul>
+                    <li><strong>kuzu-memory-graph-mcp</strong>: A custom MCP server for graph memory.</li>
+                    <li><strong>reaper-mcp-server</strong>: Controlling the Reaper DAW via MCP.</li>
+                    <li><strong>Agent Dojo</strong>: Consumes MCP servers to empower agents.</li>
+                </ul>
+
+                <h3>Community Resources</h3>
+                <ul>
+                    <li><a href="https://discord.gg/mcp">MCP Discord</a></li>
+                </ul>
             </div>
         </FrameworkPage>
     );

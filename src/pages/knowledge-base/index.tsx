@@ -1,4 +1,4 @@
-import { GlassCard } from "../../components/GlassCard";
+import { LiquidGlass } from "@liquidglass/react";
 import { ProjectShowcase } from "../../components/ProjectShowcase";
 import { Link } from "react-router-dom";
 import { ArrowRight, Book, Code, Terminal, Database, Cpu, Layers } from "lucide-react";
@@ -18,7 +18,7 @@ export default function KnowledgeBase() {
                         AI Knowledge Base
                     </h1>
                     <p className="text-lg text-muted-foreground leading-relaxed">
-                        A comprehensive catalog of AI frameworks, tools, and personal projects.
+                        An incomplete catalog of AI frameworks, tools, and personal projects.
                         Documenting the journey through the evolving landscape of artificial intelligence.
                     </p>
                 </div>
@@ -46,9 +46,10 @@ export default function KnowledgeBase() {
                 </div>
             </section>
 
+            Meghna Chakrabarti
             {/* Categories Grid */}
             <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <GlassCard className="p-8 space-y-6">
+                <LiquidGlass borderRadius={50} blur={1.5} brightness={0.75} contrast={1.2} shadowIntensity={2} elasticity={0.2} displacementScale={20} className="p-8 space-y-6">
                     <div className="flex items-center gap-4">
                         <div className="p-3 rounded-xl bg-blue-500/10 text-blue-400">
                             <Cpu className="w-8 h-8" />
@@ -79,9 +80,9 @@ export default function KnowledgeBase() {
                     <Link to="/knowledge-base/frameworks" className="inline-flex items-center text-sm text-primary hover:underline">
                         Explore all frameworks <ArrowRight className="w-4 h-4 ml-1" />
                     </Link>
-                </GlassCard>
+                </LiquidGlass>
 
-                <GlassCard className="p-8 space-y-6">
+                <LiquidGlass borderRadius={50} blur={1.5} brightness={0.75} contrast={1.2} shadowIntensity={2} elasticity={0.2} displacementScale={20} className="p-8 space-y-6">
                     <div className="flex items-center gap-4">
                         <div className="p-3 rounded-xl bg-purple-500/10 text-purple-400">
                             <Layers className="w-8 h-8" />
@@ -112,7 +113,7 @@ export default function KnowledgeBase() {
                     <Link to="/knowledge-base/tools" className="inline-flex items-center text-sm text-primary hover:underline">
                         Explore all tools <ArrowRight className="w-4 h-4 ml-1" />
                     </Link>
-                </GlassCard>
+                </LiquidGlass>
             </section>
         </div>
     );

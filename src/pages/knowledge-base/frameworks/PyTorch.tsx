@@ -18,6 +18,17 @@ export default function PyTorchPage() {
                     <li>Native support for Python</li>
                     <li>Distributed training support</li>
                 </ul>
+
+                <h3>My Projects Using This</h3>
+                <ul>
+                    <li><strong>Agent Dojo</strong>: Uses PyTorch for some underlying model interactions.</li>
+                </ul>
+
+                <h3>Community Resources</h3>
+                <ul>
+                    <li><a href="https://discuss.pytorch.org/">PyTorch Forums</a></li>
+                    <li><a href="https://pytorch.org/hub/">PyTorch Hub</a></li>
+                </ul>
             </div>
         </FrameworkPage>
     );

@@ -18,6 +18,17 @@ export default function LangGraphPage() {
                     <li>Built on top of LangChain</li>
                     <li>Ideal for multi-agent systems</li>
                 </ul>
+
+                <h3>My Projects Using This</h3>
+                <ul>
+                    <li><strong>Agent Dojo</strong>: The core orchestration engine is transitioning to LangGraph.</li>
+                    <li><strong>Sequential Thinking MCP</strong>: Implements cyclic thought processes using graph-based state.</li>
+                </ul>
+
+                <h3>Community Resources</h3>
+                <ul>
+                    <li><a href="https://langchain-ai.github.io/langgraph/tutorials/">LangGraph Tutorials</a></li>
+                </ul>
             </div>
         </FrameworkPage>
     );

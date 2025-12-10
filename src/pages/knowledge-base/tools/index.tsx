@@ -1,4 +1,4 @@
-import { GlassCard } from "../../../components/GlassCard";
+import { LiquidGlass } from "@liquidglass/react";
 import { Link } from "react-router-dom";
 
 export default function ToolsIndex() {
@@ -16,13 +16,13 @@ export default function ToolsIndex() {
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {tools.map((tool) => (
                     <Link key={tool.id} to={`/knowledge-base/tools/${tool.id}`}>
-                        <GlassCard hoverEffect className="h-full flex flex-col">
+                        <LiquidGlass borderRadius={50} blur={1.5} brightness={0.75} contrast={1.2} shadowIntensity={2} elasticity={0.2} displacementScale={20} className="h-full flex flex-col">
                             <h2 className="text-2xl font-semibold mb-2">{tool.name}</h2>
                             <p className="text-muted-foreground mb-4 flex-grow">{tool.description}</p>
                             <div className="text-primary text-sm font-medium mt-auto">
                                 View Details →
                             </div>
-                        </GlassCard>
+                        </LiquidGlass>
                     </Link>
                 ))}
             </div>

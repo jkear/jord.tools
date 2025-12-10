@@ -18,6 +18,17 @@ export default function TensorFlowPage() {
                     <li>TensorFlow.js for running models in the browser</li>
                     <li>TFLite for mobile and edge devices</li>
                 </ul>
+
+                <h3>My Projects Using This</h3>
+                <ul>
+                    <li><strong>Legacy Projects</strong>: Several older computer vision projects were built using TensorFlow.</li>
+                </ul>
+
+                <h3>Community Resources</h3>
+                <ul>
+                    <li><a href="https://discuss.tensorflow.org/">TensorFlow Forum</a></li>
+                    <li><a href="https://www.tensorflow.org/hub">TensorFlow Hub</a></li>
+                </ul>
             </div>
         </FrameworkPage>
     );

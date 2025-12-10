@@ -177,6 +177,7 @@ Thumbs.db
 *.txt
 .pnpm-store
 
+
 # Other common build output directories
 /build
 /temp
@@ -184,12 +185,10 @@ Thumbs.db
 
 # Specific to this project (Vite)
 .gemini/
-.serena/
 .archive_trash/
 .claude/ 
 reference/
 scripts/
-GEMINI.md
-CLAUDE.md
 docs/
-project-catalog.json
+.agent/
+.github/

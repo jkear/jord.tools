@@ -11,6 +11,10 @@ interface DocumentationLinkProps {
 export function DocumentationLink({ framework, type, label, url }: DocumentationLinkProps) {
     const getIcon = () => {
         switch (type) {
+            /* 
+               tailwind: width 1rem, height 1rem
+               .css: width: 1rem; height: 1rem;
+            */
             case "docs": return <Book className="w-4 h-4" />;
             case "api": return <Code className="w-4 h-4" />;
             case "devkit": return <Box className="w-4 h-4" />;
@@ -20,60 +24,7 @@ export function DocumentationLink({ framework, type, label, url }: Documentation
     };
 
     const frameworkUrls: Record<string, Record<string, string>> = {
-        pytorch: {
-            docs: "https://pytorch.org/docs/",
-            api: "https://pytorch.org/docs/stable/index.html",
-            devkit: "https://pytorch.org/get-started/locally/",
-            github: "https://github.com/pytorch/pytorch"
-        },
-        tensorflow: {
-            docs: "https://www.tensorflow.org/learn",
-            api: "https://www.tensorflow.org/api_docs",
-            devkit: "https://www.tensorflow.org/install",
-            github: "https://github.com/tensorflow/tensorflow"
-        },
-        langchain: {
-            docs: "https://python.langchain.com/docs/get_started/introduction",
-            api: "https://api.python.langchain.com/en/latest/",
-            devkit: "https://python.langchain.com/docs/get_started/installation",
-            github: "https://github.com/langchain-ai/langchain"
-        },
-        mlx: {
-            docs: "https://ml-explore.github.io/mlx/build/html/index.html",
-            api: "https://ml-explore.github.io/mlx/build/html/python/index.html",
-            devkit: "https://github.com/ml-explore/mlx#installation",
-            github: "https://github.com/ml-explore/mlx"
-        },
-        langgraph: {
-            docs: "https://python.langchain.com/docs/langgraph",
-            api: "https://python.langchain.com/docs/langgraph/reference",
-            devkit: "https://python.langchain.com/docs/langgraph#installation",
-            github: "https://github.com/langchain-ai/langgraph"
-        },
-        mcp: {
-            docs: "https://modelcontextprotocol.io/introduction",
-            api: "https://modelcontextprotocol.io/docs/concepts/architecture",
-            devkit: "https://github.com/modelcontextprotocol/typescript-sdk",
-            github: "https://github.com/modelcontextprotocol"
-        },
-        flowise: {
-            docs: "https://docs.flowiseai.com/",
-            api: "https://docs.flowiseai.com/api-reference",
-            devkit: "https://docs.flowiseai.com/getting-started",
-            github: "https://github.com/FlowiseAI/Flowise"
-        },
-        n8n: {
-            docs: "https://docs.n8n.io/",
-            api: "https://docs.n8n.io/api/",
-            devkit: "https://docs.n8n.io/hosting/",
-            github: "https://github.com/n8n-io/n8n"
-        },
-        comfyui: {
-            docs: "https://github.com/comfyanonymous/ComfyUI",
-            api: "https://github.com/comfyanonymous/ComfyUI",
-            devkit: "https://github.com/comfyanonymous/ComfyUI#installing",
-            github: "https://github.com/comfyanonymous/ComfyUI"
-        },
+        // ...existing code...
         marker: {
             docs: "https://github.com/VikParuchuri/marker",
             api: "https://github.com/VikParuchuri/marker",
@@ -85,6 +36,13 @@ export function DocumentationLink({ framework, type, label, url }: Documentation
     const resolvedUrl = url || frameworkUrls[framework]?.[type] || "#";
 
     return (
+        /* 
+           tailwind: glass effect (custom), inline flex, align center, gap 0.5rem, padding x 1rem, padding y 0.5rem, rounded corners, small text, medium font weight, transition all
+           .css: display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; border-radius: 0.5rem; font-size: 0.875rem; font-weight: 500; transition-property: all;
+           
+           tailwind: hover: primary text color, hover: primary border color with 50% opacity
+           .css: color: hsl(var(--primary)) (on hover); border-color: rgb(var(--primary) / 0.5) (on hover);
+        */
         <a
             href={resolvedUrl}
             target="_blank"
@@ -96,6 +54,10 @@ export function DocumentationLink({ framework, type, label, url }: Documentation
         >
             {getIcon()}
             {label}
+            {/* 
+               tailwind: width 0.75rem, height 0.75rem, 50% opacity
+               .css: width: 0.75rem; height: 0.75rem; opacity: 0.5;
+            */}
             <ExternalLink className="w-3 h-3 opacity-50" />
         </a>
     );

@@ -18,6 +18,17 @@ export default function N8nPage() {
                     <li>Self-hostable</li>
                     <li>Visual workflow editor</li>
                 </ul>
+
+                <h3>My Projects Using This</h3>
+                <ul>
+                    <li><strong>Automation</strong>: Automating content publishing and social media updates.</li>
+                    <li><strong>Data Pipelines</strong>: Moving data between databases and AI processing steps.</li>
+                </ul>
+
+                <h3>Community Resources</h3>
+                <ul>
+                    <li><a href="https://community.n8n.io/">n8n Forum</a></li>
+                </ul>
             </div>
         </FrameworkPage>
     );

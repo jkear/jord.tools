@@ -18,6 +18,16 @@ export default function FlowisePage() {
                     <li>Marketplace of templates</li>
                     <li>API endpoint generation</li>
                 </ul>
+
+                <h3>My Projects Using This</h3>
+                <ul>
+                    <li><strong>Prototyping</strong>: Used for initial sketches of the Agent Dojo logic.</li>
+                </ul>
+
+                <h3>Community Resources</h3>
+                <ul>
+                    <li><a href="https://discord.gg/flowise">Flowise Discord</a></li>
+                </ul>
             </div>
         </FrameworkPage>
     );

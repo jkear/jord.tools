@@ -18,6 +18,18 @@ export default function LangChainPage() {
                     <li>Memory management for conversational context</li>
                     <li>Agents for dynamic decision making</li>
                 </ul>
+
+                <h3>My Projects Using This</h3>
+                <ul>
+                    <li><strong>Agent Dojo</strong>: Heavily relies on LangChain for agent orchestration.</li>
+                    <li><strong>ExPatPlan</strong>: Uses LangChain for processing job descriptions and matching.</li>
+                </ul>
+
+                <h3>Community Resources</h3>
+                <ul>
+                    <li><a href="https://blog.langchain.dev/">LangChain Blog</a></li>
+                    <li><a href="https://discord.gg/langchain">LangChain Discord</a></li>
+                </ul>
             </div>
         </FrameworkPage>
     );
