@@ -1,5 +1,5 @@
 import React from 'react';
-import { FrameworkPage } from '../../../components/FrameworkPage';
+import { FrameworkPage } from '../../components/FrameworkPage';
 
 export default function ComfyUIPage() {
     return (
@@ -9,6 +9,7 @@ export default function ComfyUIPage() {
             framework="comfyui"
             experience="My go-to for image generation pipelines. The node-based approach gives granular control over the diffusion process."
             quickStart="git clone https://github.com/comfyanonymous/ComfyUI"
+            githubUrl="https://github.com/comfyanonymous/ComfyUI"
         >
             <div className="prose prose-invert max-w-none">
                 <h3>Key Features</h3>

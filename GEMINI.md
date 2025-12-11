@@ -48,22 +48,35 @@ The project structure has been verified.
   - Pages are **TypeScript React Components** (`.tsx`), NOT MDX files.
   - **Key Pattern:** Framework and Tool pages import `FrameworkPage` from `src/components/` and wrap hardcoded content.
 
-**Example Structure:**
+**Actual Structure:**
+[!TODO] Re-organize the files removing the extra file-layer 'knowledge-base'. Extract the features from homepage index.tsx and update imports and filepaths. Otherwise change as little as possible to complete the "[!TODO]s in the clodeblock.
 
-```tree
+```codeblock
 src/
 ├── App.tsx                     # SOURCE OF TRUTH for Routing
 ├── pages/
 │   ├── index.tsx               # Home
-│   ├── knowledge-base/
+├── ├── blog-feature.tsx        # [!TODO] Extract from pages/index.tsx
+├── ├── tools-feature.tsx       # [!TODO] Extract from pages/index.tsx
+├── ├── projects-feature.tsx    # [!TODO] extract from current pages/knowledge-base/index.tsx         
 │   │   ├── frameworks/
-│   │   │   ├── LangChain.tsx   # ACTIVE page (imported in App.tsx)
-│   │   │   ├── langchain.mdx   # DEAD CODE (orphaned, unused)
-│   │   │   └── ...
-│   │   └── tools/
-│   │       ├── MCP.tsx         # ACTIVE page
-│   │       ├── mcp.mdx         # DEAD CODE
-│   │       └── ...
+│   │   │   ├── index.tsx       # [!TODO] Fix mermaid chart #3, [fix mermaid charts to show tool
+|   |   |   |                   # names first and then a brief explainer under. So, instead of
+|   |   |   |                   # 'Raw Data' > 'Data Prep' it's 'Your Sales Logs/Data'>  'OCR
+|   |   |   |                   # like Marker, Amazon Textract, GCP VisionAPI or DocumentAI'] 
+│   │   │   ├── LangChain.tsx   
+│   │   │   └── LangGraph.tsx    
+│   │   │   └── MLX.tsx          
+│   │   |   └── ...     
+│   │   └── tools/ 
+│   │   |   ├── index.tsx       # [!TODO] New! sections: CLI, Apps, Libraries, Protocols
+│   │   |   ├── MCP.tsx
+│   │   |   └── n8n.tsx
+│   │   |   └── ...
+│   │   └── projects/ 
+│   │   |   ├── index.tsx           # [!TODO] move from src/pages/knowledge-base/projects/index.tsx
+│   │   |   └── kuzu-memory-mcp.tsx # [!TODO] Use readme.md from project, [set up area for me to add 
+│   │   |   └── ...                 # context]
 └── components/
     ├── FrameworkPage.tsx       # Standard Layout Template
     └── ui/                     # Shadcn UI components

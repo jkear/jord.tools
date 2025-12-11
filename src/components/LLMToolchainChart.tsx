@@ -90,22 +90,41 @@ const MermaidChart = ({ chart, id }: MermaidChartProps) => {
 
 export const TrainingPipelineChart = () => {
     const chart = `
-graph LR
-  %% Nodes
-  Data[Raw Data Sources]
-  Prep[Data Prep<br/>HF Datasets / Pandas]
-  Train[(Training Frameworks<br/>PyTorch / MLX / TensorFlow)]
-  Track[Experiment Tracking<br/>Weights & Biases / MLflow]
-  Model[Model Artifact<br/>HuggingFace Hub]
+flowchart LR
+  %% Nodes & Subgraphs
+  subgraph DataLayer [Data Ingestion]
+    direction TB
+    Data[("Your Sales Logs/Data")]
+  end
+
+  subgraph PrepLayer [Processing]
+    direction TB
+    Prep["Marker / Textract<br/>(OCR & Processing)"]
+  end
+
+  subgraph TrainLayer [Training Loop]
+    direction TB
+    Train["PyTorch / TensorFlow<br/>(Training Frameworks)"]
+    Track["Weights & Biases / MLflow<br/>(Experiment Tracking)"]
+  end
+
+  subgraph ModelLayer [Model Registry]
+    direction TB
+    Model[("HuggingFace Hub<br/>(Model Artifact)")]
+  end
 
   %% Flow
   Data --> Prep
   Prep --> Train
-  Train --> Track
+  Train <--> Track
   Train --> Model
 
   %% Styling
   classDef default fill:#18181b,stroke:#52525b,stroke-width:1px,color:#fff;
+  classDef cluster fill:#27272a,stroke:#3f3f46,stroke-width:1px,color:#e4e4e7,rx:10,ry:10;
+  
+  %% Apply styles
+  class DataLayer,PrepLayer,TrainLayer,ModelLayer cluster;
   `;
     return <MermaidChart chart={chart} id="chart-training" />;
 };
@@ -115,9 +134,9 @@ export const EvaluationChart = () => {
 graph TD
   %% Nodes
   Model[Trained Model]
-  AutoEval[Automated Eval<br/>Ragas / DeepEval / lm-eval]
-  Safety[Safety Guardrails<br/>Guardrails AI / NeMo]
-  Human[Human Review<br/>Label Studio / Prodigy]
+  AutoEval[Ragas / DeepEval<br/>Automated Eval]
+  Safety[Guardrails AI<br/>Safety Guardrails]
+  Human[Label Studio<br/>Human Review]
   Prod[Production Ready]
 
   %% Flow
@@ -134,23 +153,41 @@ graph TD
 
 export const ApplicationChart = () => {
     const chart = `
-graph LR
-  %% Nodes
-  User((User Input))
-  Orch[Orchestration<br/>LangChain / LangGraph]
-  (Graph)RAG[Context / Memory<br/>(Neo4j)/ Pinecone / ChromaDB]
-  Infer[Inference Engine<br/>vLLM / Ollama / TGI]
-  Response((Response))
+sequenceDiagram
+    autonumber
+    actor User
+    participant Orch as Orchestration<br/>(LangChain/LangGraph)
+    participant Guard as Guardrails<br/>(Guardrails AI)
+    participant RAG as Context<br/>(Neo4j/Pinecone)
+    participant MCP as Tools<br/>(MCP Gateway)
+    participant LLM as Inference<br/>(vLLM/Ollama)
+    participant Obs as Observability<br/>(LangFuse)
 
-  %% Flow
-  User --> Orch
-  Orch <--> RAG
-  Orch --> Infer
-  Infer --> Orch
-  Orch --> Response
+    User->>Orch: Query
+    
+    rect rgb(39, 39, 42)
+        note right of Orch: Input Validation
+        Orch->>Guard: Validate Input
+        Guard-->>Orch: Input Safe
+    end
 
-  %% Styling
-  classDef default fill:#18181b,stroke:#52525b,stroke-width:1px,color:#fff;
-  `;
+    Orch->>RAG: Retrieve Context
+    RAG-->>Orch: Context Documents
+
+    Orch->>MCP: Execute Tools (JSON-RPC)
+    MCP-->>Orch: Tool Results
+
+    Orch->>LLM: Generate Response
+    LLM-->>Orch: Completion
+
+    rect rgb(39, 39, 42)
+        note right of Orch: Output Validation
+        Orch->>Guard: Validate Output
+        Guard-->>Orch: Output Safe
+    end
+
+    Orch->>User: Response
+    Orch--)Obs: Log Trace (Async)`;
     return <MermaidChart chart={chart} id="chart-app" />;
+
 };

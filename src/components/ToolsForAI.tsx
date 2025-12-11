@@ -205,7 +205,7 @@ export function ToolsForAI() {
            .css: color: hsl(var(--muted-foreground)); margin-bottom: 1.5rem; line-height: 1.625;
         */}
         <p className="text-muted-foreground mb-6 leading-relaxed">
-          The stack I lean on to design, build, and ship AI-native products—from orchestration layers to
+          The stack I learn on to design, build, and ship AI-native products—from orchestration layers to
           observability and infrastructure.
         </p>
 

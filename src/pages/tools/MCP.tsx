@@ -1,5 +1,5 @@
 import React from 'react';
-import { FrameworkPage } from '../../../components/FrameworkPage';
+import { FrameworkPage } from '../../components/FrameworkPage';
 
 export default function MCPPage() {
     return (
@@ -7,8 +7,9 @@ export default function MCPPage() {
             title="Model Context Protocol"
             description="A standard for connecting AI assistants to systems."
             framework="mcp"
-            experience="I've built several MCP servers to connect Claude to local databases and tools. It's the future of agentic interoperability."
+            experience="I've built several MCP servers to connect to local databases and tools. After additional security layers, it'll be the future of agentic interoperability."
             quickStart="npm install @modelcontextprotocol/sdk"
+            githubUrl="https://github.com/modelcontextprotocol"
         >
             <div className="prose prose-invert max-w-none">
                 <h3>Key Features</h3>

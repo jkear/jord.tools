@@ -30,7 +30,7 @@ export function Footer() {
                .css: color: rgb(255 255 255 / 0.75); font-size: 1rem; line-height: 1.5; line-height: 1.625;
             */}
             <p className="text-white/75 text-base leading-relaxed">
-              A modern blog built with glass material design.
+              A blog built with glass material design.
             </p>
           </div>
           {/* 

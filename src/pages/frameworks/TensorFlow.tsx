@@ -1,5 +1,5 @@
 import React from 'react';
-import { FrameworkPage } from '../../../components/FrameworkPage';
+import { FrameworkPage } from '../../components/FrameworkPage';
 
 export default function TensorFlowPage() {
     return (
@@ -9,6 +9,7 @@ export default function TensorFlowPage() {
             framework="tensorflow"
             experience="Used TensorFlow for production-grade model deployment and TFX pipelines. The ecosystem is vast, though the learning curve can be steeper than PyTorch."
             quickStart="pip install tensorflow"
+            githubUrl="https://github.com/tensorflow/tensorflow"
         >
             <div className="prose prose-invert max-w-none">
                 <h3>Key Features</h3>

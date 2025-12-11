@@ -1,5 +1,5 @@
 import React from 'react';
-import { FrameworkPage } from '../../../components/FrameworkPage';
+import { FrameworkPage } from '../../components/FrameworkPage';
 
 export default function MLXPage() {
     return (
@@ -7,8 +7,9 @@ export default function MLXPage() {
             title="MLX"
             description="An array framework for machine learning on Apple silicon."
             framework="mlx"
-            experience="MLX has been a game-changer for running local LLMs. The unified memory architecture support provides impressive performance and makes getting a macbook a no-brainer, imo."
+            experience="MLX has been a game-changer for running local LLMs. The unified memory architecture support provides impressive performance and makes getting a macbook no-brainer, imo."
             quickStart="pip install mlx"
+            githubUrl="https://github.com/ml-explore/mlx"
         >
             <div className="prose prose-invert max-w-none">
                 <h3>Key Features</h3>

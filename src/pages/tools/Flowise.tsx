@@ -1,5 +1,5 @@
 import React from 'react';
-import { FrameworkPage } from '../../../components/FrameworkPage';
+import { FrameworkPage } from '../../components/FrameworkPage';
 
 export default function FlowisePage() {
     return (
@@ -9,6 +9,7 @@ export default function FlowisePage() {
             framework="flowise"
             experience="Great for rapid prototyping of LLM chains without writing code. I use it to visualize complex logic before implementing in LangChain."
             quickStart="npx flowise start"
+            githubUrl="https://github.com/FlowiseAI/Flowise"
         >
             <div className="prose prose-invert max-w-none">
                 <h3>Key Features</h3>

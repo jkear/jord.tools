@@ -1,21 +1,22 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Layout } from "./components/Layout";
 import HomePage from "./pages/index";
-import KnowledgeBaseIndex from "./pages/knowledge-base/index";
-import FrameworksIndex from "./pages/knowledge-base/frameworks/index";
-import ToolsIndex from "./pages/knowledge-base/tools/index";
-import ProjectsIndex from "./pages/knowledge-base/projects/index";
+import FrameworksIndex from "./pages/frameworks/index";
+import ToolsIndex from "./pages/tools/index";
+import ProjectsIndex from "./pages/projects/index";
+import KuzuMemoryMCPPage from "./pages/projects/kuzu-memory-mcp";
 import { R37HealthcareAIPost } from "./pages/blog/R37HealthcareAI";
-import PyTorchPage from "./pages/knowledge-base/frameworks/PyTorch";
-import TensorFlowPage from "./pages/knowledge-base/frameworks/TensorFlow";
-import MLXPage from "./pages/knowledge-base/frameworks/MLX";
-import LangChainPage from "./pages/knowledge-base/frameworks/LangChain";
-import LangGraphPage from "./pages/knowledge-base/frameworks/LangGraph";
-import MCPPage from "./pages/knowledge-base/tools/MCP";
-import FlowisePage from "./pages/knowledge-base/tools/Flowise";
-import N8nPage from "./pages/knowledge-base/tools/n8n";
-import ComfyUIPage from "./pages/knowledge-base/tools/ComfyUI";
-import MarkerPage from "./pages/knowledge-base/tools/Marker";
+import PyTorchPage from "./pages/frameworks/PyTorch";
+import TensorFlowPage from "./pages/frameworks/TensorFlow";
+import MLXPage from "./pages/frameworks/MLX";
+import LangChainPage from "./pages/frameworks/LangChain";
+import LangGraphPage from "./pages/frameworks/LangGraph";
+import MCPPage from "./pages/tools/MCP";
+import FlowisePage from "./pages/tools/Flowise";
+import N8nPage from "./pages/tools/n8n";
+import ComfyUIPage from "./pages/tools/ComfyUI";
+import MarkerPage from "./pages/tools/Marker";
+import LabelStudioPage from "./pages/tools/LabelStudio";
 
 import { ErrorBoundary } from "./components/ErrorBoundary";
 
@@ -26,26 +27,31 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />
-            <Route path="knowledge-base">
-              <Route index element={<KnowledgeBaseIndex />} />
-              <Route path="frameworks">
-                <Route index element={<FrameworksIndex />} />
-                <Route path="pytorch" element={<PyTorchPage />} />
-                <Route path="tensorflow" element={<TensorFlowPage />} />
-                <Route path="mlx" element={<MLXPage />} />
-                <Route path="langchain" element={<LangChainPage />} />
-                <Route path="langgraph" element={<LangGraphPage />} />
-              </Route>
-              <Route path="tools">
-                <Route index element={<ToolsIndex />} />
-                <Route path="mcp" element={<MCPPage />} />
-                <Route path="flowise" element={<FlowisePage />} />
-                <Route path="n8n" element={<N8nPage />} />
-                <Route path="comfyui" element={<ComfyUIPage />} />
-                <Route path="marker" element={<MarkerPage />} />
-              </Route>
-              <Route path="projects" element={<ProjectsIndex />} />
+
+            <Route path="frameworks">
+              <Route index element={<FrameworksIndex />} />
+              <Route path="pytorch" element={<PyTorchPage />} />
+              <Route path="tensorflow" element={<TensorFlowPage />} />
+              <Route path="mlx" element={<MLXPage />} />
+              <Route path="langchain" element={<LangChainPage />} />
+              <Route path="langgraph" element={<LangGraphPage />} />
             </Route>
+
+            <Route path="tools">
+              <Route index element={<ToolsIndex />} />
+              <Route path="mcp" element={<MCPPage />} />
+              <Route path="flowise" element={<FlowisePage />} />
+              <Route path="n8n" element={<N8nPage />} />
+              <Route path="comfyui" element={<ComfyUIPage />} />
+              <Route path="marker" element={<MarkerPage />} />
+              <Route path="label-studio" element={<LabelStudioPage />} />
+            </Route>
+
+            <Route path="projects">
+              <Route index element={<ProjectsIndex />} />
+              <Route path="kuzu-memory-mcp" element={<KuzuMemoryMCPPage />} />
+            </Route>
+
             <Route path="blog">
               <Route path="r37-healthcare-ai" element={<R37HealthcareAIPost />} />
             </Route>

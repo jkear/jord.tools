@@ -1,5 +1,5 @@
 import React from 'react';
-import { FrameworkPage } from '../../../components/FrameworkPage';
+import { FrameworkPage } from '../../components/FrameworkPage';
 
 export default function PyTorchPage() {
     return (
@@ -9,6 +9,7 @@ export default function PyTorchPage() {
             framework="pytorch"
             experience="I've used PyTorch extensively for various deep learning projects, including custom model training and fine-tuning. Its dynamic computation graph makes debugging much easier compared to static graph frameworks."
             quickStart="pip install torch torchvision torchaudio"
+            githubUrl="https://github.com/pytorch/pytorch"
         >
             <div className="prose prose-invert max-w-none">
                 <h3>Key Features</h3>

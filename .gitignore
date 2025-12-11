@@ -192,3 +192,6 @@ scripts/
 docs/
 .agent/
 .github/
+.claude
+.vscode/
+.serena/

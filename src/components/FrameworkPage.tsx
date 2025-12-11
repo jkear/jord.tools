@@ -8,6 +8,7 @@ interface FrameworkPageProps {
     framework: string;
     experience?: string;
     quickStart?: string;
+    githubUrl: string;
     children?: React.ReactNode;
 }
 
@@ -17,6 +18,7 @@ export function FrameworkPage({
     framework,
     experience,
     quickStart,
+    githubUrl,
     children
 }: FrameworkPageProps) {
     return (
@@ -50,7 +52,7 @@ export function FrameworkPage({
                 <DocumentationLink framework={framework} type="docs" label="Official Documentation" />
                 <DocumentationLink framework={framework} type="api" label="API Reference" />
                 <DocumentationLink framework={framework} type="devkit" label="Getting Started" />
-                <DocumentationLink framework={framework} type="github" label="GitHub Repository" />
+                <DocumentationLink framework={framework} type="github" label="GitHub Repository" url={githubUrl} />
             </div>
 
             {experience && (

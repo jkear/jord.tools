@@ -1,5 +1,5 @@
 import React from 'react';
-import { FrameworkPage } from '../../../components/FrameworkPage';
+import { FrameworkPage } from '../../components/FrameworkPage';
 
 export default function LangChainPage() {
     return (
@@ -9,6 +9,7 @@ export default function LangChainPage() {
             framework="langchain"
             experience="Essential for building RAG applications and agentic workflows. The abstraction layer simplifies connecting to various LLM providers and vector stores."
             quickStart="pip install langchain"
+            githubUrl="https://github.com/langchain-ai/langchain"
         >
             <div className="prose prose-invert max-w-none">
                 <h3>Key Features</h3>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FrameworkPage } from '../../../components/FrameworkPage';
+import { FrameworkPage } from '../../components/FrameworkPage';
 
 export default function LangGraphPage() {
     return (
@@ -9,6 +9,7 @@ export default function LangGraphPage() {
             framework="langgraph"
             experience="Moving beyond simple chains, LangGraph allows for complex, cyclic workflows which are crucial for building robust agents."
             quickStart="pip install langgraph"
+            githubUrl="https://github.com/langchain-ai/langgraph"
         >
             <div className="prose prose-invert max-w-none">
                 <h3>Key Features</h3>

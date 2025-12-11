@@ -1,4 +1,4 @@
-import { ProjectShowcase } from "../../../components/ProjectShowcase";
+import { ProjectShowcase } from "../../components/ProjectShowcase";
 
 export default function ProjectsIndex() {
     const projects = [

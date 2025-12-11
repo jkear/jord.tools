@@ -1,6 +1,6 @@
 import { LiquidGlass } from "@liquidglass/react";
 import { Link } from "react-router-dom";
-import { TrainingPipelineChart, EvaluationChart, ApplicationChart } from "../../../components/LLMToolchainChart";
+import { TrainingPipelineChart, EvaluationChart, ApplicationChart } from "../../components/LLMToolchainChart";
 
 export default function FrameworksIndex() {
     const frameworks = [
@@ -28,7 +28,7 @@ export default function FrameworksIndex() {
                         Before an application exists, the model must be prepared. Whether you are pre-training from scratch or (more likely) fine-tuning a foundation model, this stage is dominated by heavy compute and data processing.
                     </p>
                 </div>
-                
+
                 <TrainingPipelineChart />
 
                 <div className="grid md:grid-cols-2 gap-8 text-sm text-muted-foreground pt-4">
@@ -48,7 +48,7 @@ export default function FrameworksIndex() {
 
             {/* Stage 2: Evaluation */}
             <section className="space-y-6">
-                 <div className="border-l-4 border-purple-500 pl-6">
+                <div className="border-l-4 border-purple-500 pl-6">
                     <h2 className="text-2xl font-semibold">Step 2: Evaluation & Safety</h2>
                     <p className="text-muted-foreground mt-2">
                         A model file is not a product. It needs rigorous testing to ensure it doesn't hallucinate, output harmful content, or regress on key metrics.
@@ -57,7 +57,7 @@ export default function FrameworksIndex() {
 
                 <EvaluationChart />
 
-                 <div className="grid md:grid-cols-2 gap-8 text-sm text-muted-foreground pt-4">
+                <div className="grid md:grid-cols-2 gap-8 text-sm text-muted-foreground pt-4">
                     <div>
                         <strong className="text-foreground">Key Tools:</strong>
                         <ul className="list-disc list-inside mt-2 space-y-1">
@@ -66,15 +66,15 @@ export default function FrameworksIndex() {
                         </ul>
                     </div>
                     <div>
-                         <strong className="text-foreground">Goal:</strong>
+                        <strong className="text-foreground">Goal:</strong>
                         <p className="mt-2">Gain statistical confidence that the model performs well on your specific use cases before users see it.</p>
                     </div>
                 </div>
             </section>
 
-             {/* Stage 3: Application */}
-             <section className="space-y-6">
-                 <div className="border-l-4 border-green-500 pl-6">
+            {/* Stage 3: Application */}
+            <section className="space-y-6">
+                <div className="border-l-4 border-green-500 pl-6">
                     <h2 className="text-2xl font-semibold">Step 3: Orchestration & Serving</h2>
                     <p className="text-muted-foreground mt-2">
                         Finally, the model is integrated into a live application. This is where "Agents" live—managing state, memory, and tool execution.
@@ -83,7 +83,7 @@ export default function FrameworksIndex() {
 
                 <ApplicationChart />
 
-                 <div className="grid md:grid-cols-2 gap-8 text-sm text-muted-foreground pt-4">
+                <div className="grid md:grid-cols-2 gap-8 text-sm text-muted-foreground pt-4">
                     <div>
                         <strong className="text-foreground">Key Tools:</strong>
                         <ul className="list-disc list-inside mt-2 space-y-1">
@@ -99,9 +99,9 @@ export default function FrameworksIndex() {
             </section>
 
             <section className="space-y-6 pt-12">
-                 <h2 className="text-2xl font-semibold">Explore Frameworks</h2>
-                 <p className="text-muted-foreground">Detailed guides on the specific tools powering these pipelines.</p>
-                 <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                <h2 className="text-2xl font-semibold">Explore Frameworks</h2>
+                <p className="text-muted-foreground">Detailed guides on the specific tools powering these pipelines.</p>
+                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                     {frameworks.map((fw) => (
                         <Link key={fw.id} to={`/knowledge-base/frameworks/${fw.id}`} className="block h-full">
                             <LiquidGlass borderRadius={50} blur={1.5} brightness={0.75} contrast={1.2} shadowIntensity={2} elasticity={0.2} displacementScale={20} className="h-full hover:brightness-110 transition-all">

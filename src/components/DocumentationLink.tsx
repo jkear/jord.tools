@@ -30,6 +30,12 @@ export function DocumentationLink({ framework, type, label, url }: Documentation
             api: "https://github.com/VikParuchuri/marker",
             devkit: "https://github.com/VikParuchuri/marker#installation",
             github: "https://github.com/VikParuchuri/marker"
+        },
+        "label-studio": {
+            docs: "https://labelstud.io/guide/",
+            api: "https://labelstud.io/api/",
+            devkit: "https://labelstud.io/guide/install",
+            github: "https://github.com/heartexlabs/label-studio"
         }
     };
 

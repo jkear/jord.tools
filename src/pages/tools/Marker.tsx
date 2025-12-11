@@ -1,5 +1,5 @@
 import React from 'react';
-import { FrameworkPage } from '../../../components/FrameworkPage';
+import { FrameworkPage } from '../../components/FrameworkPage';
 
 export default function MarkerPage() {
     return (
@@ -9,6 +9,7 @@ export default function MarkerPage() {
             framework="marker"
             experience="Essential for my RAG pipelines. It handles equations and tables much better than standard PDF extractors."
             quickStart="pip install marker-pdf"
+            githubUrl="https://github.com/VikParuchuri/marker"
         >
             <div className="prose prose-invert max-w-none">
                 <h3>Key Features</h3>
