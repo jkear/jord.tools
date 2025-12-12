@@ -82,7 +82,7 @@ const MermaidChart = ({ chart, id }: MermaidChartProps) => {
             */}
             <div
                 dangerouslySetInnerHTML={{ __html: svg }}
-                className="w-full flex justify-center mermaid-svg-container"
+                className="w-full flex mermaid-svg-container"
             />
         </div>
     );
@@ -90,69 +90,66 @@ const MermaidChart = ({ chart, id }: MermaidChartProps) => {
 
 export const TrainingPipelineChart = () => {
     const chart = `
-flowchart LR
-    %% Row 1: Ingestion to Training (Left Column)
-    subgraph Row1 [Data Ingestion & Training]
+flowchart TD
+    %% Phase 1: Wrangle & Train
+    subgraph Phase1 [Wrangle & Train]
         direction TB
         
         subgraph Ingestion [Data Ingestion]
-            direction TB
             Data@{ shape: cyl, label: "Your Sales Logs/Data" }
         end
 
         subgraph Processing [Processing]
-            direction TB
-            Prep@{ shape: rect, label: "Marker / Textract<br/>(OCR & Processing)" }
+            Prep@{ shape: rounded, label: "Marker / Textract<br/>(OCR & Processing)" }
         end
 
         subgraph TrainLoop [Training Loop]
-            direction TB
-            Train@{ shape: rect, label: "PyTorch / TensorFlow<br/>(Training Frameworks)" }
-            Track@{ shape: rect, label: "Weights & Biases / MLflow<br/>(Experiment Tracking)" }
+            Train@{ shape: rounded, label: "PyTorch / TensorFlow<br/>(Training Frameworks)" }
+            Track@{ shape: rounded, label: "Weights & Biases / MLflow<br/>(Experiment Tracking)" }
             
             Train <==> Track
         end
 
-        Data ==> Prep ==> Train
+        Ingestion ==> Processing
+        Prep ====> TrainLoop
     end
 
-    %% Row 2: Registry to Production (Right Column)
-    subgraph Row2 [Model Registry & Evaluation]
+    %% Phase 2: Registry & Eval
+    subgraph Phase2 [Registry & Eval]
         direction TB
-        
+
         subgraph Registry [Model Registry]
-            direction TB
             Model@{ shape: cyl, label: "HuggingFace Hub<br/>(Model Artifact)" }
         end
 
         subgraph EvalSafety [Evaluation & Safety]
-            direction TB
-            AutoEval@{ shape: rect, label: "Ragas / DeepEval<br/>Automated Eval" }
-            Safety@{ shape: rect, label: "Guardrails AI<br/>Safety Guardrails" }
-            Human@{ shape: rect, label: "Label Studio<br/>Human Review" }
+            AutoEval@{ shape: rounded, label: "Ragas / DeepEval<br/>Automated Eval" }
+            Safety@{ shape: rounded, label: "Guardrails AI<br/>Safety Guardrails" }
+            Human@{ shape: rounded, label: "Label Studio<br/>Human Review" }
             
             AutoEval ==> Safety ==> Human
         end
 
-        Prod@{ shape: rect, label: "Production Ready" }
+        Prod@{ shape: rounded, label: "Production Ready" }
 
-        Model ==> AutoEval
+        Registry --> EvalSafety
         Human ==> Prod
     end
 
-    %% Layout: Row1 left of Row2
-    Row1 ~~~ Row2
+    %% Force Layout: Phase 1 Left of Phase 2
+    Phase2 ~~~ Phase2
 
-    %% Connections between rows
-    Train ==> Model
-    Human ==> Prep
+    %% Connection between phases
+    Train --> Registry
+    
+    %% Feedback loop
+    Prep <-.- Human
 
     %% Styling
-    classDef default fill:#18181b,stroke:#52525b,stroke-width:1px,color:#fff
-    classDef cluster fill:#27272a,stroke:#3f3f46,stroke-width:2px,color:#fff,rx:5,ry:5
+    classDef pad fill:none,stroke:none;
     
     %% Link Styles
-    %% 0: Train <-> Track (Row 1 internal)
+    %% 0: Train <-> Track
     linkStyle 0 stroke:#22c55e,stroke-width:3px
     %% 1: Data -> Prep
     linkStyle 1 stroke:#eab308,stroke-width:3px
@@ -161,7 +158,7 @@ flowchart LR
     
     %% 3: AutoEval -> Safety
     linkStyle 3 stroke:#3b82f6,stroke-width:3px
-    %% 4: Safety -> Human
+    %% 4: Human <- Safety
     linkStyle 4 stroke:#3b82f6,stroke-width:3px
     
     %% 5: Model -> AutoEval
@@ -169,11 +166,9 @@ flowchart LR
     %% 6: Human -> Prod
     linkStyle 6 stroke:#3b82f6,stroke-width:3px
     
-    %% 7: Row1 ~~~ Row2 (Invisible)
-    
-    %% 8: Train -> Model (Connecting Rows)
+    %% 8: Train -> Registry
     linkStyle 8 stroke:#22c55e,stroke-width:3px
-    %% 9: Human -> Prep (Feedback Loop)
+    %% 9: Prep <- Human
     linkStyle 9 stroke:#eab308,stroke-width:3px
   `;
     return <MermaidChart chart={chart} id="chart-training" />;
@@ -181,13 +176,13 @@ flowchart LR
 
 export const EvaluationChart = () => {
     const chart = `
-graph TD
+flowchart TD
   %% Nodes
-  Model[Trained Model]
-  AutoEval[Ragas / DeepEval<br/>Automated Eval]
-  Safety[Guardrails AI<br/>Safety Guardrails]
-  Human[Label Studio<br/>Human Review]
-  Prod[Production Ready]
+  Model@{ shape: rounded, label: "Trained Model" }
+  AutoEval@{ shape: rounded, label: "Ragas / DeepEval<br/>Automated Eval" }
+  Safety@{ shape: rounded, label: "Guardrails AI<br/>Safety Guardrails" }
+  Human@{ shape: rounded, label: "Label Studio<br/>Human Review" }
+  Prod@{ shape: rounded, label: "Production Ready" }
 
   %% Flow
   Model --> AutoEval
