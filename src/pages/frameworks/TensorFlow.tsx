@@ -1,9 +1,9 @@
 import React from 'react';
-import { FrameworkPage } from '../../components/FrameworkPage';
+import { FrameworkDetailPage } from '../../components/FrameworkDetailPage';
 
 export default function TensorFlowPage() {
     return (
-        <FrameworkPage
+        <FrameworkDetailPage
             title="TensorFlow"
             description="An end-to-end open source platform for machine learning."
             framework="tensorflow"
@@ -31,6 +31,6 @@ export default function TensorFlowPage() {
                     <li><a href="https://www.tensorflow.org/hub">TensorFlow Hub</a></li>
                 </ul>
             </div>
-        </FrameworkPage>
+        </FrameworkDetailPage>
     );
 }

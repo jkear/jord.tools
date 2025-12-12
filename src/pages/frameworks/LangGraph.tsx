@@ -1,9 +1,9 @@
 import React from 'react';
-import { FrameworkPage } from '../../components/FrameworkPage';
+import { FrameworkDetailPage } from '../../components/FrameworkDetailPage';
 
 export default function LangGraphPage() {
     return (
-        <FrameworkPage
+        <FrameworkDetailPage
             title="LangGraph"
             description="Building stateful, multi-actor applications with LLMs."
             framework="langgraph"
@@ -31,6 +31,6 @@ export default function LangGraphPage() {
                     <li><a href="https://langchain-ai.github.io/langgraph/tutorials/">LangGraph Tutorials</a></li>
                 </ul>
             </div>
-        </FrameworkPage>
+        </FrameworkDetailPage>
     );
 }

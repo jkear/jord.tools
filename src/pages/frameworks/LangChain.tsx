@@ -1,9 +1,9 @@
 import React from 'react';
-import { FrameworkPage } from '../../components/FrameworkPage';
+import { FrameworkDetailPage } from '../../components/FrameworkDetailPage';
 
 export default function LangChainPage() {
     return (
-        <FrameworkPage
+        <FrameworkDetailPage
             title="LangChain"
             description="Building applications with LLMs through composability."
             framework="langchain"
@@ -32,6 +32,6 @@ export default function LangChainPage() {
                     <li><a href="https://discord.gg/langchain">LangChain Discord</a></li>
                 </ul>
             </div>
-        </FrameworkPage>
+        </FrameworkDetailPage>
     );
 }

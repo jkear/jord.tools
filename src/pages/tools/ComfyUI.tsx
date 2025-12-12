@@ -1,9 +1,9 @@
 import React from 'react';
-import { FrameworkPage } from '../../components/FrameworkPage';
+import { ToolDetailPage } from '../../components/ToolDetailPage';
 
 export default function ComfyUIPage() {
     return (
-        <FrameworkPage
+        <ToolDetailPage
             title="ComfyUI"
             description="The most powerful and modular stable diffusion GUI."
             framework="comfyui"
@@ -32,6 +32,6 @@ export default function ComfyUIPage() {
                     <li><a href="https://civitai.com/">Civitai</a></li>
                 </ul>
             </div>
-        </FrameworkPage>
+        </ToolDetailPage>
     );
 }

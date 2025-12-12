@@ -1,9 +1,9 @@
 import React from 'react';
-import { FrameworkPage } from '../../components/FrameworkPage';
+import { FrameworkDetailPage } from '../../components/FrameworkDetailPage';
 
 export default function PyTorchPage() {
     return (
-        <FrameworkPage
+        <FrameworkDetailPage
             title="PyTorch"
             description="An open source machine learning framework that accelerates the path from research prototyping to production deployment."
             framework="pytorch"
@@ -31,6 +31,6 @@ export default function PyTorchPage() {
                     <li><a href="https://pytorch.org/hub/">PyTorch Hub</a></li>
                 </ul>
             </div>
-        </FrameworkPage>
+        </FrameworkDetailPage>
     );
 }

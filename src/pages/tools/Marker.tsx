@@ -1,9 +1,9 @@
 import React from 'react';
-import { FrameworkPage } from '../../components/FrameworkPage';
+import { FrameworkDetailPage } from '../../components/FrameworkDetailPage';
 
 export default function MarkerPage() {
     return (
-        <FrameworkPage
+        <FrameworkDetailPage
             title="Marker"
             description="Convert PDF to markdown quickly and accurately."
             framework="marker"
@@ -30,6 +30,6 @@ export default function MarkerPage() {
                     <li><a href="https://github.com/VikParuchuri/marker/issues">Marker GitHub Issues</a></li>
                 </ul>
             </div>
-        </FrameworkPage>
+        </FrameworkDetailPage>
     );
 }

@@ -1,9 +1,9 @@
 import React from 'react';
-import { FrameworkPage } from '../../components/FrameworkPage';
+import { FrameworkDetailPage } from '../../components/FrameworkDetailPage';
 
 export default function MLXPage() {
     return (
-        <FrameworkPage
+        <FrameworkDetailPage
             title="MLX"
             description="An array framework for machine learning on Apple silicon."
             framework="mlx"
@@ -32,6 +32,6 @@ export default function MLXPage() {
                     <li><a href="https://huggingface.co/mlx-community">Hugging Face MLX Community</a></li>
                 </ul>
             </div>
-        </FrameworkPage>
+        </FrameworkDetailPage>
     );
 }

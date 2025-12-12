@@ -16,13 +16,13 @@ const MermaidChart = ({ chart, id }: MermaidChartProps) => {
             theme: 'base',
             themeVariables: {
                 darkMode: true,
-                background: '#18181b',
+                background: '#18181b2f',
                 primaryColor: '#27272a',
                 lineColor: '#a1a1aa',
                 textColor: '#e4e4e7',
-                mainBkg: '#18181b',
+                mainBkg: '#18181b4b',
                 nodeBorder: '#3f3f46',
-                clusterBkg: '#18181b',
+                clusterBkg: '#18181b70',
                 clusterBorder: '#52525b',
             },
             fontFamily: 'ui-sans-serif, system-ui, sans-serif',
@@ -91,40 +91,90 @@ const MermaidChart = ({ chart, id }: MermaidChartProps) => {
 export const TrainingPipelineChart = () => {
     const chart = `
 flowchart LR
-  %% Nodes & Subgraphs
-  subgraph DataLayer [Data Ingestion]
-    direction TB
-    Data[("Your Sales Logs/Data")]
-  end
+    %% Row 1: Ingestion to Training (Left Column)
+    subgraph Row1 [Data Ingestion & Training]
+        direction TB
+        
+        subgraph Ingestion [Data Ingestion]
+            direction TB
+            Data@{ shape: cyl, label: "Your Sales Logs/Data" }
+        end
 
-  subgraph PrepLayer [Processing]
-    direction TB
-    Prep["Marker / Textract<br/>(OCR & Processing)"]
-  end
+        subgraph Processing [Processing]
+            direction TB
+            Prep@{ shape: rect, label: "Marker / Textract<br/>(OCR & Processing)" }
+        end
 
-  subgraph TrainLayer [Training Loop]
-    direction TB
-    Train["PyTorch / TensorFlow<br/>(Training Frameworks)"]
-    Track["Weights & Biases / MLflow<br/>(Experiment Tracking)"]
-  end
+        subgraph TrainLoop [Training Loop]
+            direction TB
+            Train@{ shape: rect, label: "PyTorch / TensorFlow<br/>(Training Frameworks)" }
+            Track@{ shape: rect, label: "Weights & Biases / MLflow<br/>(Experiment Tracking)" }
+            
+            Train <==> Track
+        end
 
-  subgraph ModelLayer [Model Registry]
-    direction TB
-    Model[("HuggingFace Hub<br/>(Model Artifact)")]
-  end
+        Data ==> Prep ==> Train
+    end
 
-  %% Flow
-  Data --> Prep
-  Prep --> Train
-  Train <--> Track
-  Train --> Model
+    %% Row 2: Registry to Production (Right Column)
+    subgraph Row2 [Model Registry & Evaluation]
+        direction TB
+        
+        subgraph Registry [Model Registry]
+            direction TB
+            Model@{ shape: cyl, label: "HuggingFace Hub<br/>(Model Artifact)" }
+        end
 
-  %% Styling
-  classDef default fill:#18181b,stroke:#52525b,stroke-width:1px,color:#fff;
-  classDef cluster fill:#27272a,stroke:#3f3f46,stroke-width:1px,color:#e4e4e7,rx:10,ry:10;
-  
-  %% Apply styles
-  class DataLayer,PrepLayer,TrainLayer,ModelLayer cluster;
+        subgraph EvalSafety [Evaluation & Safety]
+            direction TB
+            AutoEval@{ shape: rect, label: "Ragas / DeepEval<br/>Automated Eval" }
+            Safety@{ shape: rect, label: "Guardrails AI<br/>Safety Guardrails" }
+            Human@{ shape: rect, label: "Label Studio<br/>Human Review" }
+            
+            AutoEval ==> Safety ==> Human
+        end
+
+        Prod@{ shape: rect, label: "Production Ready" }
+
+        Model ==> AutoEval
+        Human ==> Prod
+    end
+
+    %% Layout: Row1 left of Row2
+    Row1 ~~~ Row2
+
+    %% Connections between rows
+    Train ==> Model
+    Human ==> Prep
+
+    %% Styling
+    classDef default fill:#18181b,stroke:#52525b,stroke-width:1px,color:#fff
+    classDef cluster fill:#27272a,stroke:#3f3f46,stroke-width:2px,color:#fff,rx:5,ry:5
+    
+    %% Link Styles
+    %% 0: Train <-> Track (Row 1 internal)
+    linkStyle 0 stroke:#22c55e,stroke-width:3px
+    %% 1: Data -> Prep
+    linkStyle 1 stroke:#eab308,stroke-width:3px
+    %% 2: Prep -> Train
+    linkStyle 2 stroke:#eab308,stroke-width:3px
+    
+    %% 3: AutoEval -> Safety
+    linkStyle 3 stroke:#3b82f6,stroke-width:3px
+    %% 4: Safety -> Human
+    linkStyle 4 stroke:#3b82f6,stroke-width:3px
+    
+    %% 5: Model -> AutoEval
+    linkStyle 5 stroke:#3b82f6,stroke-width:3px
+    %% 6: Human -> Prod
+    linkStyle 6 stroke:#3b82f6,stroke-width:3px
+    
+    %% 7: Row1 ~~~ Row2 (Invisible)
+    
+    %% 8: Train -> Model (Connecting Rows)
+    linkStyle 8 stroke:#22c55e,stroke-width:3px
+    %% 9: Human -> Prep (Feedback Loop)
+    linkStyle 9 stroke:#eab308,stroke-width:3px
   `;
     return <MermaidChart chart={chart} id="chart-training" />;
 };
@@ -153,41 +203,104 @@ graph TD
 
 export const ApplicationChart = () => {
     const chart = `
-sequenceDiagram
-    autonumber
-    actor User
-    participant Orch as Orchestration<br/>(LangChain/LangGraph)
-    participant Guard as Guardrails<br/>(Guardrails AI)
-    participant RAG as Context<br/>(Neo4j/Pinecone)
-    participant MCP as Tools<br/>(MCP Gateway)
-    participant LLM as Inference<br/>(vLLM/Ollama)
-    participant Obs as Observability<br/>(LangFuse)
+flowchart TD
+    %% Subgraphs
+    subgraph Interface [User Interface]
+        direction LR
+        User@{ shape: lean-r, label: "User" } ~~~ Response@{ shape: lean-r, label: "Response" }
+    end
 
-    User->>Orch: Query
+    subgraph AuthLayer [Identity & Access]
+        direction TB
+        Authn@{ shape: rounded, label: "Authentication<br/>JWT / OIDC / OAuth2" }
+        Authz@{ shape: rounded, label: "Authorization<br/>RBAC" }
+    end
+
+    subgraph SafetyLayer [Safety Layer]
+        Guard@{ shape: hex, label: "Input/Output Validation<br/>Guardrails AI" }
+    end
+
+    subgraph Agent [Agent Core]
+        Orch@{ shape: stadium, label: "Orchestrator<br/>LangGraph / LangChain" }
+        Infer@{ shape: proc, label: "Inference Engine<br/>vLLM / Ollama" }
+        Mem@{ shape: cyl, label: "Working Memory & GraphRAG<br/>Vector DB / Graph DB" }
+    end
+
+    subgraph Tools [External Ecosystem]
+        MCP@{ shape: notch-rect, label: "Secure MCP Gateway<br/>IBM ContextForge" }
+        API@{ shape: cloud, label: "External APIs" }
+    end
+
+    subgraph Obs [Logging and Feedback]
+        Log@{ shape: lean-r, label: "Observability<br/>LangSmith / LangFuse" }
+    end
     
-    rect rgb(39, 39, 42)
-        note right of Orch: Input Validation
-        Orch->>Guard: Validate Input
-        Guard-->>Orch: Input Safe
-    end
+    Feedback@{ shape: comment, label: "User Feedback<br/>Back to Training" }
 
-    Orch->>RAG: Retrieve Context
-    RAG-->>Orch: Context Documents
+    %% Layout adjustments
+    Interface ~~~ AuthLayer
+    AuthLayer ~~~ SafetyLayer
+    SafetyLayer ~~~ Agent
+    
+    %% Force Response to be at the top level with User
+    Response ~~~ Authn
 
-    Orch->>MCP: Execute Tools (JSON-RPC)
-    MCP-->>Orch: Tool Results
+    %% Connections
+    User ==> Authn
+    Authn ==> Authz
+    Authz ==> Guard
+    Guard ==> Orch
+    
+    Orch <==> Infer
+    Orch <==> Mem
+    
+    Orch <==> MCP
+    MCP <==> API
 
-    Orch->>LLM: Generate Response
-    LLM-->>Orch: Completion
+    Orch -.-> Log
+    Log -.-> Feedback
 
-    rect rgb(39, 39, 42)
-        note right of Orch: Output Validation
-        Orch->>Guard: Validate Output
-        Guard-->>Orch: Output Safe
-    end
+    Orch ==> Guard
+    Guard ==> Response
 
-    Orch->>User: Response
-    Orch--)Obs: Log Trace (Async)`;
+    %% Styling
+    classDef default fill:#18181b,stroke:#52525b,stroke-width:1px,color:#fff
+    classDef cluster fill:#27272a,stroke:#3f3f46,stroke-width:2px,color:#fff,rx:5,ry:5
+    
+    %% Link Styles
+    %% 0: User ~~~ Response (Invisible)
+    %% 1: Interface ~~~ AuthLayer (Invisible)
+    %% 2: AuthLayer ~~~ SafetyLayer (Invisible)
+    %% 3: SafetyLayer ~~~ Agent (Invisible)
+    %% 4: Response ~~~ Authn (Invisible)
+    
+    %% 5: User -> Authn (Yellow)
+    linkStyle 5 stroke:#eab308,stroke-width:3px
+    %% 6: Authn -> Authz (Yellow)
+    linkStyle 6 stroke:#eab308,stroke-width:3px
+    %% 7: Authz -> Guard (Yellow)
+    linkStyle 7 stroke:#eab308,stroke-width:3px
+    %% 8: Guard -> Orch (Yellow)
+    linkStyle 8 stroke:#eab308,stroke-width:3px
+    
+    %% 9: Orch <-> Infer (Green)
+    linkStyle 9 stroke:#22c55e,stroke-width:3px
+    %% 10: Orch <-> Mem (Green)
+    linkStyle 10 stroke:#22c55e,stroke-width:3px
+    %% 11: Orch <-> MCP (Green)
+    linkStyle 11 stroke:#22c55e,stroke-width:3px
+    %% 12: MCP <-> API (Green)
+    linkStyle 12 stroke:#22c55e,stroke-width:3px
+
+    %% 13: Orch -> Log (Dotted)
+    linkStyle 13 stroke:#71717a,stroke-width:2px,stroke-dasharray: 5 5
+    %% 14: Log -> Feedback (Dotted)
+    linkStyle 14 stroke:#71717a,stroke-width:2px,stroke-dasharray: 5 5
+
+    %% 15: Orch -> Guard (Blue)
+    linkStyle 15 stroke:#3b82f6,stroke-width:3px
+    %% 16: Guard -> Response (Blue)
+    linkStyle 16 stroke:#3b82f6,stroke-width:3px
+  `;
     return <MermaidChart chart={chart} id="chart-app" />;
-
 };

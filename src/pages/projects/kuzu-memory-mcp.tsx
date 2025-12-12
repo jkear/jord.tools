@@ -1,8 +1,8 @@
-import { FrameworkPage } from "../../components/FrameworkPage";
+import { ProjectDetailPage } from "../../components/ProjectDetailPage";
 
 export default function KuzuMemoryMCPPage() {
     return (
-        <FrameworkPage
+        <ProjectDetailPage
             title="Kuzu Memory Graph MCP"
             description="MCP server for Kuzu graph database memory. KUZU is the ancient Sumarian word for wisdom."
             framework="kuzu-mcp"
@@ -28,6 +28,6 @@ export default function KuzuMemoryMCPPage() {
                     </div>
                 </section>
             </div>
-        </FrameworkPage>
+        </ProjectDetailPage>
     );
 }

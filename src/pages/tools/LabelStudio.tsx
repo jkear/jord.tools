@@ -1,9 +1,9 @@
 import React from 'react';
-import { FrameworkPage } from '../../components/FrameworkPage';
+import { ToolDetailPage } from '../../components/ToolDetailPage';
 
 export default function LabelStudioPage() {
     return (
-        <FrameworkPage
+        <ToolDetailPage
             title="Label Studio"
             description="Open source data labeling tool for audio, text, images, videos, and time series."
             framework="label-studio"
@@ -20,6 +20,6 @@ export default function LabelStudioPage() {
                     <li>Export to standard formats (JSON, CSV, COCO, Pascal VOC)</li>
                 </ul>
             </div>
-        </FrameworkPage>
+        </ToolDetailPage>
     );
 }

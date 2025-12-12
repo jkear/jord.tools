@@ -1,9 +1,9 @@
 import React from 'react';
-import { FrameworkPage } from '../../components/FrameworkPage';
+import { ToolDetailPage } from '../../components/ToolDetailPage';
 
 export default function FlowisePage() {
     return (
-        <FrameworkPage
+        <ToolDetailPage
             title="Flowise"
             description="Drag & drop UI to build your customized LLM flow."
             framework="flowise"
@@ -30,6 +30,6 @@ export default function FlowisePage() {
                     <li><a href="https://discord.gg/flowise">Flowise Discord</a></li>
                 </ul>
             </div>
-        </FrameworkPage>
+        </ToolDetailPage>
     );
 }

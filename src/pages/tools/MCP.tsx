@@ -1,9 +1,9 @@
 import React from 'react';
-import { FrameworkPage } from '../../components/FrameworkPage';
+import { FrameworkDetailPage } from '../../components/FrameworkDetailPage';
 
 export default function MCPPage() {
     return (
-        <FrameworkPage
+        <FrameworkDetailPage
             title="Model Context Protocol"
             description="A standard for connecting AI assistants to systems."
             framework="mcp"
@@ -32,6 +32,6 @@ export default function MCPPage() {
                     <li><a href="https://discord.gg/mcp">MCP Discord</a></li>
                 </ul>
             </div>
-        </FrameworkPage>
+        </FrameworkDetailPage>
     );
 }

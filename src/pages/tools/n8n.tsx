@@ -1,9 +1,9 @@
 import React from 'react';
-import { FrameworkPage } from '../../components/FrameworkPage';
+import { ToolDetailPage } from '../../components/ToolDetailPage';
 
 export default function N8nPage() {
     return (
-        <FrameworkPage
+        <ToolDetailPage
             title="n8n"
             description="Workflow automation tool."
             framework="n8n"
@@ -31,6 +31,6 @@ export default function N8nPage() {
                     <li><a href="https://community.n8n.io/">n8n Forum</a></li>
                 </ul>
             </div>
-        </FrameworkPage>
+        </ToolDetailPage>
     );
 }

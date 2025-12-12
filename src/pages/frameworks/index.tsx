@@ -3,12 +3,18 @@ import { Link } from "react-router-dom";
 import { TrainingPipelineChart, EvaluationChart, ApplicationChart } from "../../components/LLMToolchainChart";
 
 export default function FrameworksIndex() {
+    const languages = [
+        { id: "python", name: "Python", description: "Reliable glue language for experiments, automation, and production workloads." },
+    ];
+
     const frameworks = [
         { id: "pytorch", name: "PyTorch", description: "Open source machine learning framework that accelerates the path from research prototyping to production deployment." },
         { id: "tensorflow", name: "TensorFlow", description: "An end-to-end open source platform for machine learning." },
         { id: "mlx", name: "MLX", description: "An array framework for machine learning on Apple silicon." },
         { id: "langchain", name: "LangChain", description: "Building applications with LLMs through composability." },
         { id: "langgraph", name: "LangGraph", description: "Building stateful, multi-actor applications with LLMs." },
+        { id: "mcp", name: "Model Context Protocol", description: "Standard for connecting AI assistants to systems." },
+        { id: "marker", name: "Marker", description: "Convert PDF to markdown quickly and accurately." },
     ];
 
     return (
@@ -99,11 +105,31 @@ export default function FrameworksIndex() {
             </section>
 
             <section className="space-y-6 pt-12">
+                <h2 className="text-2xl font-semibold">Languages</h2>
+                <p className="text-muted-foreground">Core languages that underpin the rest of the AI stack.</p>
+                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    {languages.map((lang) => (
+                        <Link key={lang.id} to={`/frameworks/${lang.id}`} className="block h-full">
+                            <LiquidGlass borderRadius={50} blur={1.5} brightness={0.75} contrast={1.2} shadowIntensity={2} elasticity={0.2} displacementScale={20} className="h-full hover:brightness-110 transition-all">
+                                <div className="flex flex-col h-full p-6">
+                                    <h2 className="text-2xl font-semibold mb-2">{lang.name}</h2>
+                                    <p className="text-muted-foreground mb-4 flex-grow">{lang.description}</p>
+                                    <div className="text-primary text-sm font-medium mt-auto">
+                                        View Details →
+                                    </div>
+                                </div>
+                            </LiquidGlass>
+                        </Link>
+                    ))}
+                </div>
+            </section>
+
+            <section className="space-y-6 pt-12">
                 <h2 className="text-2xl font-semibold">Explore Frameworks</h2>
                 <p className="text-muted-foreground">Detailed guides on the specific tools powering these pipelines.</p>
                 <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                     {frameworks.map((fw) => (
-                        <Link key={fw.id} to={`/knowledge-base/frameworks/${fw.id}`} className="block h-full">
+                        <Link key={fw.id} to={`/frameworks/${fw.id}`} className="block h-full">
                             <LiquidGlass borderRadius={50} blur={1.5} brightness={0.75} contrast={1.2} shadowIntensity={2} elasticity={0.2} displacementScale={20} className="h-full hover:brightness-110 transition-all">
                                 <div className="flex flex-col h-full p-6">
                                     <h2 className="text-2xl font-semibold mb-2">{fw.name}</h2>
