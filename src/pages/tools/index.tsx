@@ -13,6 +13,24 @@ const apps: Tool[] = [
     { id: "n8n", name: "n8n", description: "Workflow automation tool." },
     { id: "comfyui", name: "ComfyUI", description: "The most powerful and modular stable diffusion GUI." },
     { id: "label-studio", name: "Label Studio", description: "Open source data labeling tool for all data types." },
+    {
+        id: "vscode",
+        name: "VS Code",
+        description: "The most popular code editor with extensive AI extension ecosystem.",
+        href: "https://code.visualstudio.com/",
+    },
+    {
+        id: "xcode",
+        name: "Xcode",
+        description: "Apple's IDE for macOS, iOS, watchOS, and tvOS development.",
+        href: "https://developer.apple.com/xcode/",
+    },
+    {
+        id: "iterm2",
+        name: "iTerm2",
+        description: "macOS terminal replacement with GPU rendering, split panes, and extensive customization.",
+        href: "https://iterm2.com/",
+    },
 ];
 
 const platforms: Tool[] = [
@@ -27,6 +45,12 @@ const platforms: Tool[] = [
         name: "Anthropic Claude Desktop",
         description: "Desktop client for Claude, often paired with MCP servers.",
         href: "https://claude.ai/download",
+    },
+    {
+        id: "warp",
+        name: "Warp",
+        description: "The intelligent terminal with AI-powered command suggestions, blocks, and workflows.",
+        href: "https://www.warp.dev/",
     },
 ];
 
@@ -48,6 +72,12 @@ const cli: Tool[] = [
         name: "Claude Code",
         description: "CLI-focused coding assistant for working directly in repos.",
         href: "https://docs.anthropic.com/en/docs/claude-code",
+    },
+    {
+        id: "opencode",
+        name: "OpenCode",
+        description: "Open-source AI coding assistant CLI for terminal-based development workflows.",
+        href: "https://github.com/opencode-ai/opencode",
     },
 ];
 

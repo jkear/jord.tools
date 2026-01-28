@@ -57,19 +57,23 @@ export function ToolDetailPage({
 
             {experience && (
                 <LiquidGlass borderRadius={50} blur={1.5} brightness={0.75} contrast={1.2} shadowIntensity={2} elasticity={0.2} displacementScale={20}>
-                    <h2 className="text-2xl font-semibold mb-4">My Experience</h2>
-                    <div className="prose prose-invert max-w-none">
-                        <p>{experience}</p>
+                    <div className="p-6 sm:p-8">
+                        <h2 className="text-2xl font-semibold mb-4">My Experience</h2>
+                        <div className="prose prose-invert max-w-none">
+                            <p className="leading-relaxed">{experience}</p>
+                        </div>
                     </div>
                 </LiquidGlass>
             )}
 
             {quickStart && (
                 <LiquidGlass borderRadius={50} blur={1.5} brightness={0.75} contrast={1.2} shadowIntensity={2} elasticity={0.2} displacementScale={20}>
-                    <h2 className="text-2xl font-semibold mb-4">Quick Start</h2>
-                    <pre className="bg-black/50 p-4 rounded-lg overflow-x-auto">
-                        <code className="text-sm font-mono text-green-400">{quickStart}</code>
-                    </pre>
+                    <div className="p-6 sm:p-8">
+                        <h2 className="text-2xl font-semibold mb-4">Quick Start</h2>
+                        <pre className="bg-black/50 p-4 rounded-lg overflow-x-auto">
+                            <code className="text-sm font-mono text-green-400">{quickStart}</code>
+                        </pre>
+                    </div>
                 </LiquidGlass>
             )}
 
