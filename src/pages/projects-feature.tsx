@@ -8,6 +8,7 @@ interface Project {
     description?: string;
     technologies?: string[];
     github?: string;
+    slug?: string;
 }
 
 export function ProjectsFeature() {
@@ -17,21 +18,24 @@ export function ProjectsFeature() {
             title: "Trace Dark Money to it's political recipients",
             description: "FEC data parser and Neo4j uploader tool. To trace dark money from corporations to shell companies and then to politicians that do their bidding. AKA political finance analysis.",
             technologies: ["Python", "Neo4j", "FEC API"],
-            github: "https://github.com/jkear/FEC-data-and-HR1-199-neo4j-dump"
+            github: "https://github.com/jkear/FEC-data-and-HR1-199-neo4j-dump",
+            slug: "neo4j-finds-congress-guilty"
         },
         {
             id: 2,
             title: "Kuzu Memory Graph MCP",
             description: "MCP server for Kuzu graph database memory. Works like SQLite but for graphs.",
             technologies: ["MCP", "Kuzu", "GraphDB"],
-            github: "https://github.com/jkear/kuzu-memory-graph-mcp"
+            github: "https://github.com/jkear/kuzu-memory-graph-mcp",
+            slug: "kuzu-memory-mcp"
         },
         {
             id: 3,
             title: "ExPatPlan",
             description: "AI-powered job search I made for a friend to help get a Highly Skilled Migrant Visa sponsorship in the Netherlands.",
             technologies: ["Next.js", "LangChain", "Supabase", "OpenAI"],
-            github: "https://github.com/jkear/exp4t"
+            github: "https://github.com/jkear/exp4t",
+            slug: "expat-plan"
         }
     ];
 
@@ -51,6 +55,7 @@ export function ProjectsFeature() {
                         description={project.description || ""}
                         technologies={project.technologies || []}
                         githubUrl={project.github}
+                        slug={project.slug}
                     />
                 ))}
             </div>

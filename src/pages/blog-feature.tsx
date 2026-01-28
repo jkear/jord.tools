@@ -1,4 +1,5 @@
 import { LiquidGlass } from "@liquidglass/react";
+import { Link } from "react-router-dom";
 
 const blogPosts = [
     {
@@ -32,11 +33,11 @@ export function BlogFeature() {
                     <h2 className="text-4xl font-semibold text-white/90 drop-shadow-md">Latest Posts</h2>
                     <div className="space-y-5">
                         {blogPosts.map((post) => (
-                            <div key={post.id} className="space-y-2 border-b border-white/15 pb-5 last:border-b-0 last:pb-0">
+                            <Link key={post.id} to={`/blog/${post.id}`} className="block space-y-2 border-b border-white/15 pb-5 last:border-b-0 last:pb-0 hover:bg-white/5 rounded-lg transition-colors -mx-2 px-2 py-2">
                                 <h3 className="text-xl font-semibold text-white/85 leading-snug">{post.title}</h3>
                                 <p className="text-base text-white/75 leading-relaxed">{post.excerpt}</p>
                                 <p className="text-xs tracking-wide text-white/60 uppercase">{post.date} • {post.readTime}</p>
-                            </div>
+                            </Link>
                         ))}
                     </div>
                 </div>

@@ -41,9 +41,9 @@ export default function HomePage() {
                         </p>
                         <a
                             className="inline-flex items-center justify-center rounded-full border border-white/35 px-9 py-3.5 text-sm sm:text-base font-semibold tracking-wide text-white/85 transition hover:border-white hover:text-white"
-                            href="/knowledge-base"
+                            href="/frameworks"
                         >
-                            Open the knowledge base
+                            Explore frameworks
                         </a>
                     </div>
                 </LiquidGlass>

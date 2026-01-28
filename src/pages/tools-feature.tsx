@@ -1,41 +1,42 @@
 import { LiquidGlass } from "@liquidglass/react";
+import { Link } from "react-router-dom";
 
 const tools = [
     {
         name: "Neo4j",
         description: "The Graph Database is the tool to rule them all. Knwoldege, understanding, defined decision trees, security, and information discovery.",
         icon: "/images/icons/neo4j-liquid-glass.png",
-        url: "#"
+        url: "https://neo4j.com/"
     },
     {
         name: "MCP",
         description: "Model Context Protocol to connect LLMs to any API, store prompts, and use hooks. Serena, Graph Algorithms,  ",
         icon: "/images/icons/mcp-glass-icon.png",
-        url: "#"
+        url: "/frameworks/mcp"
     },
     {
         name: "Marker",
         description: "PDF to Markdown Converter to give AI perfect vision of any PDF before it goes into a graph database",
         icon: "/images/icons/langs_libraries_icon.png",
-        url: "#"
+        url: "/frameworks/marker"
     },
     {
         name: "n8n",
         description: "Everyone's go-to automation platform with langchain's tools built-in",
         icon: "/images/icons/n8n-glass-icon1.png",
-        url: "#"
+        url: "/tools/n8n"
     },
     {
         name: "Flowise",
         description: "Low-code orchestration platform enabling workflow whiteboarding and easy creation.",
         icon: "/images/icons/flowise-glass-icon.png",
-        url: "#"
+        url: "/tools/flowise"
     },
     {
         name: "ComfyUI",
         description: "AI Image Generation workflow platform",
         icon: "/images/icons/comfyUI-glass-icon.png",
-        url: "#"
+        url: "/tools/comfyui"
     },
 ];
 
@@ -46,11 +47,17 @@ export function ToolsFeature() {
                 <div className="w-full px-10 py-12 space-y-7">
                     <h2 className="text-4xl font-semibold text-white/90 drop-shadow-md">Favorite AI Tools</h2>
                     <div className="space-y-5">
-                        {tools.map((tool) => (
-                            <a
+                        {tools.map((tool) => {
+                            const isExternal = tool.url.startsWith("http");
+                            const LinkComponent = isExternal ? "a" : Link;
+                            const linkProps = isExternal
+                                ? { href: tool.url, target: "_blank", rel: "noopener noreferrer" }
+                                : { to: tool.url };
+                            return (
+                            <LinkComponent
                                 key={tool.name}
                                 className="flex items-center gap-6 rounded-2xl border border-white/18 px-6 py-5 transition hover:border-white/35"
-                                href={tool.url}
+                                {...linkProps}
                             >
                                 <div className="relative h-14 w-14 flex-shrink-0">
                                     <img
@@ -64,8 +71,8 @@ export function ToolsFeature() {
                                     <h3 className="text-xl font-semibold text-white/90 leading-snug">{tool.name}</h3>
                                     <p className="text-base text-white/75 leading-relaxed">{tool.description}</p>
                                 </div>
-                            </a>
-                        ))}
+                            </LinkComponent>
+                        )})}
                     </div>
                 </div>
             </LiquidGlass>
