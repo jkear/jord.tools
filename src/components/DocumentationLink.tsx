@@ -24,7 +24,48 @@ export function DocumentationLink({ framework, type, label, url }: Documentation
     };
 
     const frameworkUrls: Record<string, Record<string, string>> = {
-        // ...existing code...
+        pytorch: {
+            docs: "https://pytorch.org/docs/stable/",
+            api: "https://docs.pytorch.org/docs/stable/pytorch-api.html",
+            devkit: "https://pytorch.org/get-started/locally/",
+            github: "https://github.com/pytorch/pytorch"
+        },
+        tensorflow: {
+            docs: "https://www.tensorflow.org/guide",
+            api: "https://www.tensorflow.org/api_docs",
+            devkit: "https://www.tensorflow.org/install",
+            github: "https://github.com/tensorflow/tensorflow"
+        },
+        mlx: {
+            docs: "https://ml-explore.github.io/mlx/build/html/index.html",
+            api: "https://ml-explore.github.io/mlx/build/html/python/index.html",
+            devkit: "https://ml-explore.github.io/mlx/build/html/install.html",
+            github: "https://github.com/ml-explore/mlx"
+        },
+        langchain: {
+            docs: "https://python.langchain.com/docs/",
+            api: "https://python.langchain.com/api_reference/",
+            devkit: "https://python.langchain.com/docs/get_started/installation",
+            github: "https://github.com/langchain-ai/langchain"
+        },
+        langgraph: {
+            docs: "https://langchain-ai.github.io/langgraph/",
+            api: "https://langchain-ai.github.io/langgraph/reference/",
+            devkit: "https://langchain-ai.github.io/langgraph/tutorials/introduction/",
+            github: "https://github.com/langchain-ai/langgraph"
+        },
+        python: {
+            docs: "https://docs.python.org/3/",
+            api: "https://docs.python.org/3/library/",
+            devkit: "https://docs.python.org/3/tutorial/",
+            github: "https://github.com/python/cpython"
+        },
+        mcp: {
+            docs: "https://modelcontextprotocol.io/",
+            api: "https://modelcontextprotocol.io/docs/concepts/",
+            devkit: "https://modelcontextprotocol.io/quickstart",
+            github: "https://github.com/modelcontextprotocol"
+        },
         marker: {
             docs: "https://github.com/VikParuchuri/marker",
             api: "https://github.com/VikParuchuri/marker",
@@ -36,6 +77,24 @@ export function DocumentationLink({ framework, type, label, url }: Documentation
             api: "https://labelstud.io/api/",
             devkit: "https://labelstud.io/guide/install",
             github: "https://github.com/heartexlabs/label-studio"
+        },
+        flowise: {
+            docs: "https://docs.flowiseai.com/",
+            api: "https://docs.flowiseai.com/api-reference",
+            devkit: "https://docs.flowiseai.com/getting-started",
+            github: "https://github.com/FlowiseAI/Flowise"
+        },
+        n8n: {
+            docs: "https://docs.n8n.io/",
+            api: "https://docs.n8n.io/api/",
+            devkit: "https://docs.n8n.io/hosting/",
+            github: "https://github.com/n8n-io/n8n"
+        },
+        comfyui: {
+            docs: "https://docs.comfy.org/",
+            api: "https://docs.comfy.org/essentials/custom_node_overview",
+            devkit: "https://docs.comfy.org/get_started/gettingstarted",
+            github: "https://github.com/comfyanonymous/ComfyUI"
         }
     };
 
