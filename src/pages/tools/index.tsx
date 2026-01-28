@@ -60,7 +60,7 @@ function ToolSection({ title, tools }: { title: string, tools: Tool[] }) {
                 {tools.map((tool) => (
                     tool.href ? (
                         <a key={tool.id} href={tool.href} target="_blank" rel="noreferrer" className="block">
-                            <LiquidGlass borderRadius={50} blur={1.5} brightness={0.75} contrast={1.2} shadowIntensity={2} elasticity={0.2} displacementScale={20} className="h-full flex flex-col p-6">
+                            <LiquidGlass borderRadius={50} brightness={.75} blur={1.5} contrast={1.2} shadowIntensity={2} elasticity={.2} displacementScale={20} className="h-full flex flex-col p-6">
                                 <h3 className="text-xl font-semibold mb-2">{tool.name}</h3>
                                 <p className="text-muted-foreground mb-4 flex-grow">{tool.description}</p>
                                 <div className="text-primary text-sm font-medium mt-auto">
@@ -70,7 +70,7 @@ function ToolSection({ title, tools }: { title: string, tools: Tool[] }) {
                         </a>
                     ) : (
                         <Link key={tool.id} to={`/tools/${tool.id}`}>
-                            <LiquidGlass borderRadius={50} blur={1.5} brightness={0.75} contrast={1.2} shadowIntensity={2} elasticity={0.2} displacementScale={20} className="h-full flex flex-col p-6">
+                            <LiquidGlass borderRadius={50} brightness={.75} blur={1.5} contrast={1.2} shadowIntensity={2} elasticity={.2} displacementScale={20} className="h-full flex flex-col p-6">
                                 <h3 className="text-xl font-semibold mb-2">{tool.name}</h3>
                                 <p className="text-muted-foreground mb-4 flex-grow">{tool.description}</p>
                                 <div className="text-primary text-sm font-medium mt-auto">

@@ -27,8 +27,8 @@ export default function HomePage() {
             </div>
 
             <div className="w-full max-w-screen-2xl flex flex-col gap-12">
-                <ProjectsFeature />
                 <ToolsFeature />
+                <ProjectsFeature />
                 <BlogFeature />
             </div>
 

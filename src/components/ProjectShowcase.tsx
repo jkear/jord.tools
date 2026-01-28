@@ -1,6 +1,7 @@
 import { LiquidGlass } from "@liquidglass/react";
 import { Github, ExternalLink } from "lucide-react";
 import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
 
 interface ProjectShowcaseProps {
     title: string;
@@ -9,9 +10,10 @@ interface ProjectShowcaseProps {
     githubUrl?: string;
     demoUrl?: string;
     status?: "active" | "archived" | "in-progress";
+    slug?: string;
 }
 
-export function ProjectShowcase({ title, description, technologies, githubUrl, demoUrl, status }: ProjectShowcaseProps) {
+export function ProjectShowcase({ title, description, technologies, githubUrl, demoUrl, status, slug }: ProjectShowcaseProps) {
     return (
         /* 
            tailwind: flex container, column layout, full height
@@ -32,7 +34,15 @@ export function ProjectShowcase({ title, description, technologies, githubUrl, d
                        tailwind: xl text size, semi-bold font, high-contrast text, tighter leading
                        .css: font-size: 1.25rem; line-height: 1.75rem; font-weight: 600;
                     */}
-                    <h3 className="text-xl font-semibold leading-snug text-white/90">{title}</h3>
+                    <h3 className="text-xl font-semibold leading-snug text-white/90">
+                        {slug ? (
+                            <Link to={`/projects/${slug}`} className="hover:text-primary transition-colors">
+                                {title}
+                            </Link>
+                        ) : (
+                            title
+                        )}
+                    </h3>
                     {status && (
                         /* 
                            tailwind: extra small text, padding x 0.5rem, padding y 0.25rem, full rounded corners, border

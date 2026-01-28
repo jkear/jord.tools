@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find:*)",
+      "mcp__sequential-thinking__process_thought",
+      "Bash(mkdir:*)",
+      "Bash(cat:*)",
+      "mcp__redis__scan_keys",
+      "mcp__neo4j-cypher__read_neo4j_cypher"
+    ],
+    "additionalDirectories": [
+      "/Users/jordankearfott/DevProjects/R37_Study_Guide",
+      "/Users/jordankearfott/DevProjects/MCP/kuzu-memory-graph-mcp",
+      "/Users/jordankearfott/DevProjects/fec_data_parse2neo4j",
+      "/Users/jordankearfott/DevProjects/Agent_Dojo"
+    ]
+  }
+}

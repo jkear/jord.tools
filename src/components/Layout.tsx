@@ -10,16 +10,16 @@ import { BackgroundProvider } from "./GlassBackgroundContext";
 // Route-aware background chooser.
 // Given a pathname, returns the appropriate background image URL.
 function resolveBackground(pathname: string) {
-  if (pathname.startsWith("/knowledge-base/frameworks")) {
-    return "/pexels-frameworks-bg.jpg";
+  if (pathname.startsWith("/frameworks")) {
+    return "/images/pexels-frameworks-bg.jpg";
   }
-  if (pathname.startsWith("/knowledge-base/projects")) {
-    return "/pexels-projects-bg.jpg";
+  if (pathname.startsWith("/projects")) {
+    return "/images/pexels-projects-bg.jpg";
   }
   if (pathname === "/") {
-    return "/pexels-Home-bg.jpg";
+    return "/images/pexels-Home-bg.jpg";
   }
-  return "/bg-lava.jpg";
+  return "/images/bg-lava.jpg";
 }
 
 export function Layout() {

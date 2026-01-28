@@ -5,6 +5,18 @@ import FrameworksIndex from "./pages/frameworks/index";
 import ToolsIndex from "./pages/tools/index";
 import ProjectsIndex from "./pages/projects/index";
 import KuzuMemoryMCPPage from "./pages/projects/kuzu-memory-mcp";
+import AgentDojoPage from "./pages/projects/agent-dojo";
+import Neo4jFindsCongressGuiltyPage from "./pages/projects/neo4j-finds-congress-guilty";
+import StartupCRMPage from "./pages/projects/startup-crm";
+import LongPDFSplitterPage from "./pages/projects/long-pdf-splitter";
+import MacOSAgentBuilderPage from "./pages/projects/macos-agent-builder";
+import ExPatPlanPage from "./pages/projects/expat-plan";
+import SpotLightPage from "./pages/projects/spot-light";
+import ObVaultPage from "./pages/projects/obvault";
+import MarkerMCPPage from "./pages/projects/marker-mcp";
+import AudioEngineerMCPPage from "./pages/projects/audio-engineer-mcp";
+import GimpMCPPage from "./pages/projects/gimp-mcp";
+import ReaperMCPPage from "./pages/projects/reaper-mcp";
 import { R37HealthcareAIPost } from "./pages/blog/R37HealthcareAI";
 import PythonPage from "./pages/frameworks/Python";
 import PyTorchPage from "./pages/frameworks/PyTorch";
@@ -52,6 +64,18 @@ export default function App() {
             <Route path="projects">
               <Route index element={<ProjectsIndex />} />
               <Route path="kuzu-memory-mcp" element={<KuzuMemoryMCPPage />} />
+              <Route path="agent-dojo" element={<AgentDojoPage />} />
+              <Route path="neo4j-finds-congress-guilty" element={<Neo4jFindsCongressGuiltyPage />} />
+              <Route path="startup-crm" element={<StartupCRMPage />} />
+              <Route path="long-pdf-splitter" element={<LongPDFSplitterPage />} />
+              <Route path="macos-agent-builder" element={<MacOSAgentBuilderPage />} />
+              <Route path="expat-plan" element={<ExPatPlanPage />} />
+              <Route path="spot-light" element={<SpotLightPage />} />
+              <Route path="obvault" element={<ObVaultPage />} />
+              <Route path="marker-mcp" element={<MarkerMCPPage />} />
+              <Route path="audio-engineer-mcp" element={<AudioEngineerMCPPage />} />
+              <Route path="gimp-mcp" element={<GimpMCPPage />} />
+              <Route path="reaper-mcp" element={<ReaperMCPPage />} />
             </Route>
 
             <Route path="blog">

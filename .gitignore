@@ -53,7 +53,6 @@ out
 
 
 # Vite build output
-dist
 .vitepress/dist
 
 
@@ -62,7 +61,6 @@ build
 
 
 # Netlify functions debug log
-.netlify/functions/
 
 # TernJS port file
 .tern-port
@@ -133,14 +131,7 @@ Thumbs.db
 /tmp
 
 # Specific to this project (Vite)
-.gemini/
 .archive_trash/
-.claude/ 
 reference/
 scripts/
 docs/
-.agent/
-.github/
-.claude
-.vscode/
-.serena/

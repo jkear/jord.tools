@@ -1,6 +1,6 @@
 import React, { createContext, useContext } from "react";
 
-const BackgroundContext = createContext<string>("/bg-lava.jpg");
+const BackgroundContext = createContext<string>("/images/bg-lava.jpg");
 
 interface BackgroundProviderProps {
     value: string;

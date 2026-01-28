@@ -1,6 +1,32 @@
 import { LiquidGlass } from "@liquidglass/react";
 import { Link } from "react-router-dom";
 import { TrainingPipelineChart, EvaluationChart, ApplicationChart } from "../../components/LLMToolchainChart";
+import { BadgeCheckIcon, ChevronRightIcon } from "lucide-react"
+
+import { Button } from "@/components/ui/button"
+import {
+    Item,
+    ItemActions,
+    ItemContent,
+    ItemDescription,
+    ItemMedia,
+    ItemTitle,
+} from "@/components/ui/item"
+import {
+    Sheet,
+    SheetClose,
+    SheetContent,
+    SheetDescription,
+    SheetHeader,
+    SheetTitle,
+    SheetTrigger,
+} from "@/components/ui/sheet"
+
+import {
+    ResizableHandle,
+    ResizablePanel,
+    ResizablePanelGroup,
+} from "@/components/ui/resizable"
 
 export default function FrameworksIndex() {
     const languages = [
@@ -25,7 +51,6 @@ export default function FrameworksIndex() {
                     Building a Generative AI application isn't just about picking a model. It's about constructing a reliable pipeline that moves from raw data to a production-ready user experience.
                 </p>
             </div>
-
             {/* Stage 1: Training */}
             <section className="space-y-6">
                 <div className="border-l-4 border-blue-500 pl-6">
@@ -34,8 +59,6 @@ export default function FrameworksIndex() {
                         Before an application exists, the model must be prepared. Whether you are pre-training from scratch or (more likely) fine-tuning a foundation model, this stage is dominated by heavy compute and data processing.
                     </p>
                 </div>
-
-                <TrainingPipelineChart />
 
                 <div className="grid md:grid-cols-2 gap-8 text-sm text-muted-foreground pt-4">
                     <div>
@@ -51,6 +74,64 @@ export default function FrameworksIndex() {
                     </div>
                 </div>
             </section>
+            <LiquidGlass borderRadius={10} brightness={1} blur={.5} contrast={.2} shadowIntensity={0} zIndex={999} elasticity={1.5} displacementScale={40}>
+                <div>
+                    <Item>
+                        <ItemMedia />
+                        <ItemContent>
+                            <ItemTitle>Tune and Train Loop</ItemTitle>
+                            <ItemDescription>To get a model that regularly meets expectaions after all steps. <br></br>But you ain't even a real one if you aren't fine tuning open source models</ItemDescription>
+                        </ItemContent>
+                        <ItemActions>
+
+                            <Sheet>
+                                <SheetTrigger asChild>
+                                    <Button variant="outline" size="sm">See Chart</Button>
+                                </SheetTrigger>
+                                <SheetContent
+                                    side="right"
+                                    className="inset-0 h-[100dvh] w-screen max-w-none sm:max-w-none border-0 bg-transparent p-0 shadow-none"
+                                >
+                                    <ResizablePanelGroup
+                                        direction="horizontal"
+                                        className="flex-row-reverse"
+                                    >
+                                        <ResizablePanel
+                                            defaultSize={50}
+                                            minSize={25}
+                                            maxSize={95}
+                                            className="flex flex-col bg-background border-l"
+                                        >
+                                            <SheetHeader className="border-b">
+                                                <SheetTitle>Build and Train Loop</SheetTitle>
+                                                <SheetDescription>
+                                                    To get a model that actually performs your task well.
+                                                </SheetDescription>
+                                            </SheetHeader>
+                                            <div className="flex-1 overflow-auto p-4">
+                                                <TrainingPipelineChart />
+                                            </div>
+                                        </ResizablePanel>
+
+                                        <ResizableHandle withHandle />
+
+                                        <ResizablePanel defaultSize={50} minSize={5}>
+                                            <SheetClose asChild>
+                                                <button
+                                                    type="button"
+                                                    aria-label="Close"
+                                                    className="h-full w-full bg-transparent"
+                                                />
+                                            </SheetClose>
+                                        </ResizablePanel>
+                                    </ResizablePanelGroup>
+                                </SheetContent>
+                            </Sheet>
+
+                        </ItemActions>
+                    </Item>
+                </div>
+            </LiquidGlass>
 
             {/* Stage 2: Evaluation */}
             <section className="space-y-6">
@@ -61,7 +142,62 @@ export default function FrameworksIndex() {
                     </p>
                 </div>
 
-                <EvaluationChart />
+                <LiquidGlass borderRadius={10} brightness={1} blur={.5} contrast={.2} shadowIntensity={0} zIndex={999} elasticity={1.5} displacementScale={40}>
+                    <div>
+                        <Item>
+                            <ItemMedia />
+                            <ItemContent>
+                                <ItemTitle>Evaluate and Validate</ItemTitle>
+                                <ItemDescription>Test safety, faithfulness, and regressions:</ItemDescription>
+                            </ItemContent>
+                            <ItemActions>
+                                <Sheet>
+                                    <SheetTrigger asChild>
+                                        <Button variant="outline" size="sm">See Chart</Button>
+                                    </SheetTrigger>
+                                    <SheetContent
+                                        side="right"
+                                        className="inset-0 h-[100dvh] w-screen max-w-none sm:max-w-none border-0 bg-transparent p-0 shadow-none"
+                                    >
+                                        <ResizablePanelGroup
+                                            direction="horizontal"
+                                            className="flex-row-reverse"
+                                        >
+                                            <ResizablePanel
+                                                defaultSize={50}
+                                                minSize={25}
+                                                maxSize={95}
+                                                className="flex flex-col bg-background border-l"
+                                            >
+                                                <SheetHeader className="border-b">
+                                                    <SheetTitle>Evaluation & Safety</SheetTitle>
+                                                    <SheetDescription>
+                                                        Build confidence before users see it.
+                                                    </SheetDescription>
+                                                </SheetHeader>
+                                                <div className="flex-1 overflow-auto p-4">
+                                                    <EvaluationChart />
+                                                </div>
+                                            </ResizablePanel>
+
+                                            <ResizableHandle withHandle />
+
+                                            <ResizablePanel defaultSize={50} minSize={5}>
+                                                <SheetClose asChild>
+                                                    <button
+                                                        type="button"
+                                                        aria-label="Close"
+                                                        className="h-full w-full bg-transparent"
+                                                    />
+                                                </SheetClose>
+                                            </ResizablePanel>
+                                        </ResizablePanelGroup>
+                                    </SheetContent>
+                                </Sheet>
+                            </ItemActions>
+                        </Item>
+                    </div>
+                </LiquidGlass>
 
                 <div className="grid md:grid-cols-2 gap-8 text-sm text-muted-foreground pt-4">
                     <div>
@@ -87,7 +223,62 @@ export default function FrameworksIndex() {
                     </p>
                 </div>
 
-                <ApplicationChart />
+                <LiquidGlass borderRadius={10} brightness={1} blur={.5} contrast={.2} shadowIntensity={0} zIndex={999} elasticity={1.5} displacementScale={40}>
+                    <div>
+                        <Item>
+                            <ItemMedia />
+                            <ItemContent>
+                                <ItemTitle>Orchestrate and Serve</ItemTitle>
+                                <ItemDescription>Ship an agentic, production-ready application:</ItemDescription>
+                            </ItemContent>
+                            <ItemActions>
+                                <Sheet>
+                                    <SheetTrigger asChild>
+                                        <Button variant="outline" size="sm">See Chart</Button>
+                                    </SheetTrigger>
+                                    <SheetContent
+                                        side="right"
+                                        className="inset-0 h-[100dvh] w-screen max-w-none sm:max-w-none border-0 bg-transparent p-0 shadow-none"
+                                    >
+                                        <ResizablePanelGroup
+                                            direction="horizontal"
+                                            className="flex-row-reverse"
+                                        >
+                                            <ResizablePanel
+                                                defaultSize={50}
+                                                minSize={25}
+                                                maxSize={95}
+                                                className="flex flex-col bg-background border-l"
+                                            >
+                                                <SheetHeader className="border-b">
+                                                    <SheetTitle>Orchestration & Serving</SheetTitle>
+                                                    <SheetDescription>
+                                                        Connect tools, memory, and inference into a product.
+                                                    </SheetDescription>
+                                                </SheetHeader>
+                                                <div className="flex-1 overflow-auto p-4">
+                                                    <ApplicationChart />
+                                                </div>
+                                            </ResizablePanel>
+
+                                            <ResizableHandle withHandle />
+
+                                            <ResizablePanel defaultSize={50} minSize={5}>
+                                                <SheetClose asChild>
+                                                    <button
+                                                        type="button"
+                                                        aria-label="Close"
+                                                        className="h-full w-full bg-transparent"
+                                                    />
+                                                </SheetClose>
+                                            </ResizablePanel>
+                                        </ResizablePanelGroup>
+                                    </SheetContent>
+                                </Sheet>
+                            </ItemActions>
+                        </Item>
+                    </div>
+                </LiquidGlass>
 
                 <div className="grid md:grid-cols-2 gap-8 text-sm text-muted-foreground pt-4">
                     <div>

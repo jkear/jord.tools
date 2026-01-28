@@ -23,8 +23,8 @@ export function ProjectDetailPage({
 }: ProjectDetailPageProps) {
     return (
         /* 
-           tailwind: vertical space between children 2rem, max width 4xl, auto horizontal margin, horizontal padding
-           .css: max-width: 56rem; margin-left: auto; margin-right: auto; padding-left/right applied by Tailwind;
+        tailwind: vertical space between children 2rem, max width 4xl, auto horizontal margin, horizontal padding
+        .css: max-width: 56rem; margin-left: auto; margin-right: auto; padding-left/right applied by Tailwind;
         */
         <div className="space-y-8 max-w-4xl mx-auto px-6 sm:px-10">
             <div className="space-y-4">
@@ -40,7 +40,7 @@ export function ProjectDetailPage({
             </div>
 
             {experience && (
-                <LiquidGlass borderRadius={50} blur={1.5} brightness={0.75} contrast={1.2} shadowIntensity={2} elasticity={0.2} displacementScale={20}>
+                <LiquidGlass borderRadius={50} blur={1.2} brightness={0.2} contrast={1.2} shadowIntensity={2} elasticity={0.2} displacementScale={20}>
                     <h2 className="text-2xl font-semibold mb-4">My Experience</h2>
                     <div className="prose prose-invert max-w-none">
                         <p>{experience}</p>
@@ -49,7 +49,7 @@ export function ProjectDetailPage({
             )}
 
             {quickStart && (
-                <LiquidGlass borderRadius={50} blur={1.5} brightness={0.75} contrast={1.2} shadowIntensity={2} elasticity={0.2} displacementScale={20}>
+                <LiquidGlass borderRadius={50} blur={1.2} brightness={0.2} contrast={1.2} shadowIntensity={.5} elasticity={2} displacementScale={20}>
                     <h2 className="text-2xl font-semibold mb-4">Quick Start</h2>
                     <pre className="bg-black/50 p-4 rounded-lg overflow-x-auto">
                         <code className="text-sm font-mono text-green-400">{quickStart}</code>

@@ -7,59 +7,96 @@ export default function ProjectsIndex() {
             description: "AI agent orchestration framework with MCP integration.",
             technologies: ["FastAPI", "LangChain", "LangGraph", "MCP"],
             githubUrl: "https://github.com/jkear/Agent_Dojo",
-            status: "active" as const
+            status: "active" as const,
+            slug: "agent-dojo"
         },
         {
             title: "Kuzu Memory Graph MCP",
             description: "MCP server for Kuzu graph database memory. KUZU is the ancient Sumarian word for wisdom. This db works like SQLite, a compiled package without a bulky application. It can manage multi-hop graph traversal like Neo4j but without the clunky desktop application.",
             technologies: ["MCP", "Kuzu", "GraphDB"],
             githubUrl: "https://github.com/jkear/kuzu-memory-graph-mcp",
-            status: "active" as const
+            status: "active" as const,
+            slug: "kuzu-memory-mcp"
         },
         {
             title: "Reaper MCP Server",
             description: "MCP server for Reaper to give audio engineering advice as well as insert particular frequiencies and intervals outlined in declasified CIA documents that are said to have mind altering effects. Some some invoke malleability and calmness others determination and anger. This needs a model trained for this purpose, not a foundation LLM model.",
             technologies: ["MCP", "Python", "Reaper"],
-            status: "active" as const
+            status: "active" as const,
+            slug: "reaper-mcp"
+        },
+        {
+            title: "Audio Engineer MCP Suite",
+            description: "Comprehensive audio engineering toolkit for music production.",
+            technologies: ["Lua", "Python", "Reaper"],
+            status: "active" as const,
+            slug: "audio-engineer-mcp"
+        },
+        {
+            title: "GIMP MCP Server",
+            description: "AI-powered image editing integration with GIMP.",
+            technologies: ["Python", "GIMP", "AI"],
+            status: "active" as const,
+            slug: "gimp-mcp"
+        },
+        {
+            title: "Marker MCP Server",
+            description: "Advanced PDF to Markdown conversion with AI enhancement and layout refinement.",
+            technologies: ["Python", "Marker", "OCR"],
+            status: "active" as const,
+            slug: "marker-mcp"
         },
         {
             title: "ExPatPlan",
             description: "AI-powered job search for HSM visa sponsorship in the Netherlands.",
             technologies: ["Next.js", "LangChain", "Supabase", "OpenAI"],
             githubUrl: "https://github.com/jkear/exp4t",
-            status: "archived" as const
+            status: "archived" as const,
+            slug: "expat-plan"
         },
         {
             title: "SPOT-Light",
             description: "Illuminating political influence through data analysis.",
             technologies: ["Python", "Neo4j", "Streamlit", "OpenAI"],
-            status: "active" as const
+            status: "active" as const,
+            slug: "spot-light"
         },
         {
-            title: "Trace Dark Money to it's political recipients",
+            title: "Neo4j Finds Congress Guilty",
             description: "FEC data parser and Neo4j uploader tool. To trace dark money from corporations to shell companies and then to politicians that do their bidding. AKA political finance analysis.",
             technologies: ["Python", "Neo4j", "FEC API"],
             githubUrl: "https://github.com/jkear/FEC-data-and-HR1-199-neo4j-dump.git",
-            status: "active" as const
+            status: "active" as const,
+            slug: "neo4j-finds-congress-guilty"
         },
         {
             title: "Startup CRM",
             description: "Added features for Backflip.Media to BottleCRM: Free and Open Source Customer Relationship Management.",
             technologies: ["SvelteKit", "TailwindCSS", "Prisma"],
             githubUrl: "https://github.com/jkear/startup-crm.git",
-            status: "active" as const
+            status: "active" as const,
+            slug: "startup-crm"
         },
         {
             title: "MacOS Agent Builder",
             description: "Swift based agent builder for macOS. In development but, does the world need another agent builder?",
             technologies: ["React", "Vite", "TypeScript", "Tailwind"],
-            status: "in-progress" as const
+            status: "in-progress" as const,
+            slug: "macos-agent-builder"
+        },
+        {
+            title: "ObVault",
+            description: "Secure vault and password management application.",
+            technologies: ["Electron", "Node.js"],
+            status: "active" as const,
+            slug: "obvault"
         },
         {
             title: "LongPDFsplitter",
             description: "PDF Text splitter using pdfplumber or PyPDF2. I use this to split textbooks and other big pdf files.",
             technologies: ["Python", "PDF", "OpenAI"],
-            status: "active" as const
+            status: "active" as const,
+            slug: "long-pdf-splitter"
         }
     ];
 

@@ -1,0 +1,28 @@
+{
+  "mcpServers": {
+    "apple-dev": {
+      "command": "node",
+      "args": [
+        "/Users/jordankearfott/DevProjects/MCP/apple-dev-mcp/dist/server.js"
+      ]
+    }
+  },
+  "ui": {
+    "showCitations": false,
+    "showModelInfoInChat": true,
+    "showLineNumbers": false,
+    "showMemoryUsage": true,
+    "showStatusInTitle": true
+  },
+  "context": {
+    "loadMemoryFromIncludeDirectories": true
+  },
+  "output": {
+    "format": "text"
+  },
+  "general": {
+    "sessionRetention": {
+      "enabled": true
+    }
+  }
+}
