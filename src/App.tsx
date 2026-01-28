@@ -17,7 +17,6 @@ import MarkerMCPPage from "./pages/projects/marker-mcp";
 import AudioEngineerMCPPage from "./pages/projects/audio-engineer-mcp";
 import GimpMCPPage from "./pages/projects/gimp-mcp";
 import ReaperMCPPage from "./pages/projects/reaper-mcp";
-import { R37HealthcareAIPost } from "./pages/blog/R37HealthcareAI";
 import PythonPage from "./pages/frameworks/Python";
 import PyTorchPage from "./pages/frameworks/PyTorch";
 import TensorFlowPage from "./pages/frameworks/TensorFlow";
@@ -79,7 +78,6 @@ export default function App() {
             </Route>
 
             <Route path="blog">
-              <Route path="r37-healthcare-ai" element={<R37HealthcareAIPost />} />
             </Route>
           </Route>
         </Routes>

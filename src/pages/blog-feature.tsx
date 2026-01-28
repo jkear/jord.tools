@@ -3,13 +3,6 @@ import { Link } from "react-router-dom";
 
 const blogPosts = [
     {
-        id: "r37-healthcare-ai",
-        title: "R37 Healthcare AI Study Guide",
-        excerpt: "An interactive deep dive into healthcare AI applications.",
-        date: "May 20, 2024",
-        readTime: "10 min read",
-    },
-    {
         id: "ml-music",
         title: "Machine Learning Models in Music Composition",
         excerpt: "How transformer models generate original compositions.",
