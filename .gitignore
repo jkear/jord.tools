@@ -53,6 +53,7 @@ out
 
 
 # Vite build output
+dist/
 .vitepress/dist
 
 
