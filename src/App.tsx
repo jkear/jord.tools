@@ -17,6 +17,8 @@ import MarkerMCPPage from "./pages/projects/marker-mcp";
 import AudioEngineerMCPPage from "./pages/projects/audio-engineer-mcp";
 import GimpMCPPage from "./pages/projects/gimp-mcp";
 import ReaperMCPPage from "./pages/projects/reaper-mcp";
+import MLMusicPost from "./pages/blog/ml-music";
+import PoliticalDiscoursePost from "./pages/blog/political-discourse";
 import PythonPage from "./pages/frameworks/Python";
 import PyTorchPage from "./pages/frameworks/PyTorch";
 import TensorFlowPage from "./pages/frameworks/TensorFlow";
@@ -78,6 +80,8 @@ export default function App() {
             </Route>
 
             <Route path="blog">
+              <Route path="ml-music" element={<MLMusicPost />} />
+              <Route path="political-discourse" element={<PoliticalDiscoursePost />} />
             </Route>
           </Route>
         </Routes>
