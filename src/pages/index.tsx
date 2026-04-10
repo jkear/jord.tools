@@ -1,8 +1,6 @@
 import { LiquidGlass } from "@liquidglass/react";
 import { BlogFeature } from "./blog-feature";
 import { ToolsFeature } from "./tools-feature";
-import { ProjectsFeature } from "./projects-feature";
-
 export default function HomePage() {
     return (
         <div
@@ -18,7 +16,7 @@ export default function HomePage() {
                                     AI/ML dev journal
                                 </h1>
                                 <p className="text-xl sm:text-2xl text-white/80 max-w-4xl">
-                                    documenting libs/langs, tools, and projects
+                                    documenting libs/langs, tools, and experiments
                                 </p>
                             </div>
                         </div>
@@ -28,7 +26,6 @@ export default function HomePage() {
 
             <div className="w-full max-w-screen-2xl flex flex-col gap-12">
                 <ToolsFeature />
-                <ProjectsFeature />
                 <BlogFeature />
             </div>
 
@@ -37,7 +34,7 @@ export default function HomePage() {
                     <div className="w-full px-10 sm:px-14 py-12 flex flex-col items-center gap-6 text-center">
                         <h2 className="text-3xl sm:text-4xl font-semibold text-white/90 drop-shadow-md">Explore Deeper</h2>
                         <p className="text-base sm:text-lg text-white/80 max-w-3xl leading-relaxed">
-                            Curated walkthroughs, implementation notes, and experiments land here first. Jump into the frameworks, tools, or projects catalog to keep building.
+                            Curated walkthroughs, implementation notes, and experiments land here first. Jump into the frameworks and tools catalog to keep building.
                         </p>
                         <a
                             className="inline-flex items-center justify-center rounded-full border border-white/35 px-9 py-3.5 text-sm sm:text-base font-semibold tracking-wide text-white/85 transition hover:border-white hover:text-white"
